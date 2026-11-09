@@ -1,0 +1,176 @@
+1
+00:00:00,350 --> 00:00:02,388
+This approval came 4 seconds late.
+
+2
+00:00:02,388 --> 00:00:03,736
+So nothing was sent.
+
+3
+00:00:04,520 --> 00:00:04,965
+Rewind.
+
+4
+00:00:04,965 --> 00:00:09,628
+A small business holds dollars, and owes suppliers in euros and pounds.
+
+5
+00:00:09,828 --> 00:00:12,078
+Rates keep moving while an approval waits.
+
+6
+00:00:13,228 --> 00:00:17,490
+This is Rate-Locked Approval, on Airwallex's sandbox, with test money.
+
+7
+00:00:17,490 --> 00:00:19,832
+A Claude model reads three invoices.
+
+8
+00:00:20,239 --> 00:00:24,203
+Two come through clean. The third has a due time with no time zone,
+
+9
+00:00:24,203 --> 00:00:26,601
+so the agent stops, and asks a person.
+
+10
+00:00:27,056 --> 00:00:30,277
+Separately, five hostile invoices were thrown at it.
+
+11
+00:00:30,277 --> 00:00:32,781
+Zero wrong values. All five were held.
+
+12
+00:00:36,032 --> 00:00:36,861
+Next, the plan.
+
+13
+00:00:36,861 --> 00:00:38,946
+Code does this part, not the model.
+
+14
+00:00:39,393 --> 00:00:41,339
+The plan funds Acme from euros.
+
+15
+00:00:41,339 --> 00:00:44,228
+Globex needs pounds, so dollars get converted.
+
+16
+00:00:44,228 --> 00:00:46,952
+Initech waits for money that's coming in.
+
+17
+00:00:48,752 --> 00:00:51,846
+Now the money Initech is waiting for looks less certain.
+
+18
+00:00:51,846 --> 00:00:54,869
+Only the decisions that depend on it are recomputed.
+
+19
+00:00:57,049 --> 00:00:58,314
+Acme is not touched.
+
+20
+00:00:58,314 --> 00:01:01,099
+Globex is checked again, and stays the same.
+
+21
+00:01:01,099 --> 00:01:03,084
+Initech now goes to a person.
+
+22
+00:01:05,734 --> 00:01:06,931
+Here's the key idea.
+
+23
+00:01:06,931 --> 00:01:10,372
+The agent may only spend at the rate a person approved.
+
+24
+00:01:11,929 --> 00:01:16,061
+For Globex, it asks Airwallex for a quote: a rate with an end time.
+
+25
+00:01:16,061 --> 00:01:19,603
+That opens a separate approver page, sized for a phone.
+
+26
+00:01:19,619 --> 00:01:23,702
+They see what they pay, what the supplier gets, the locked rate, and a countdown.
+
+27
+00:01:23,828 --> 00:01:28,310
+Approve in time, and the agent may use exactly this quote. Nothing else.
+
+28
+00:01:28,312 --> 00:01:31,656
+The approver gets pulled into a meeting, and the clock runs out.
+
+29
+00:01:38,492 --> 00:01:41,668
+The tap on Approve comes too late. The app refuses.
+
+30
+00:01:41,668 --> 00:01:46,551
+Nothing was converted, nothing was paid. The log shows zero execution calls.
+
+31
+00:01:47,823 --> 00:01:51,344
+So the agent asks for a fresh quote, and shows what changed.
+
+32
+00:01:51,344 --> 00:01:52,987
+Eleven cents less this time.
+
+33
+00:01:52,987 --> 00:01:56,834
+Either way, it won't convert without a quote a person approved.
+
+34
+00:01:57,956 --> 00:02:01,006
+The approver says yes to the new quote, and it goes through.
+
+35
+00:02:08,699 --> 00:02:12,899
+Now the record. Approved on the left, executed on the right, row by row.
+
+36
+00:02:12,899 --> 00:02:14,390
+Twelve of twelve match.
+
+37
+00:02:14,828 --> 00:02:17,238
+Those are real Airwallex sandbox IDs.
+
+38
+00:02:17,238 --> 00:02:21,949
+The transfer went from scheduled to paid, using the sandbox simulator.
+
+39
+00:02:29,596 --> 00:02:33,185
+Anyone can verify an exported copy, offline. It passes.
+
+40
+00:02:33,185 --> 00:02:37,315
+Edit one number in the copy, and it fails, and names the row.
+
+41
+00:02:39,980 --> 00:02:42,438
+Built on Airwallex's sandbox APIs:
+
+42
+00:02:42,438 --> 00:02:46,991
+balances, rates, quotes, conversions, beneficiaries, transfers.
+
+43
+00:02:46,991 --> 00:02:48,798
+The code is MIT licensed,
+
+44
+00:02:48,798 --> 00:02:52,201
+and the repository is linked with this entry.
+

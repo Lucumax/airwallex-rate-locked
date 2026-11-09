@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Approve Supplier Payment</title>
+<meta name="description" content="Approve or deny one supplier payment at a locked quote.">
+<link rel="stylesheet" href="/static/app.css">
+<script src="/static/theme.js"></script>
+<script src="/static/approver.js" defer></script>
+</head>
+<body class="approver">
+<a class="skip" href="#main">Skip to the approval</a>
+<header class="topbar">
+  <span class="chip world" id="chip-world" data-provenance="fake">WORLD: FAKE</span>
+  <span class="tag" id="chip-money">Test money</span>
+</header>
+<main id="main" class="phone">
+  <p class="eyebrow">Rate-Locked Approval · Step 4 of 5, Approval</p>
+  <h1 id="title">Approve this supplier payment</h1>
+  <p class="sub" id="subtitle">Review the locked terms before approving.</p>
+  <p id="message" class="notice" role="status" aria-live="polite">Loading the request.</p>
+  <p id="result" role="alert"></p>
+  <section class="decide" aria-labelledby="h-decide">
+    <h2 id="h-decide" class="sr-only">The decision</h2>
+    <dl class="trade" id="trade"></dl>
+    <div class="rate-row" id="raterow"></div>
+    <div class="timer">
+      <p class="timer-label" id="timer-label">Time to approve</p>
+      <div class="ring-wrap">
+        <div class="clock" id="clock">
+          <svg viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+            <circle class="track" cx="100" cy="100" r="88"></circle>
+            <circle class="ring" id="ring" cx="100" cy="100" r="88"></circle>
+          </svg>
+        </div>
+        <div class="face" role="timer" aria-live="off" aria-atomic="true">
+          <span class="left" id="left">-:--</span>
+        </div>
+      </div>
+      <p class="until" id="until">loading</p>
+      <p class="until" id="under"></p>
+      <span class="chip status" id="state-chip">Loading</span>
+    </div>
+    <p id="clock-say" class="sr-only" aria-live="polite"></p>
+    <dl class="rows decision" id="decision"></dl>
+    <div class="why" id="why"></div>
+  </section>
+  <form id="confirm">
+    <p class="fine" id="expiry-note"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="5" y="10" width="14" height="10" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg>If this quote expires, approval is required again.</p>
+    <div class="actions">
+      <button type="submit" class="primary" id="approve">Approve</button>
+      <button type="button" id="deny">Decline</button>
+    </div>
+    <p id="approve-hint" class="muted hint" hidden>The server re-checks the time when you send. An expired quote is refused.</p>
+  </form>
+  <details class="about" id="fullterms">
+    <summary>Full terms</summary>
+    <p class="inwords" id="inwords"></p>
+    <dl class="rows terms" id="terms"></dl>
+    <p class="source">Source: terms from the <b id="src-world" data-provenance="fake">FAKE</b> world quote, bound by <b data-provenance="code">CODE</b>. The clock reads the approval deadline and the server clock; the quote ends later.</p>
+    <p class="muted">Approve sends the first <span id="prefix-len">8</span> characters of this digest (<strong class="mono" id="prefix"></strong>) for you, and the server accepts it only for exactly these terms. Approval of any other terms is refused. Approval works once. This page can approve or deny this request only.</p>
+  </details>
+  <p class="rec"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"></path><path d="M9 12l2 2 4-4"></path></svg>Every action is recorded.</p>
+</main>
+<footer>
+  <p class="honesty">Test money. Supplier and amounts are fictional test fixtures. Independent sandbox project. Not affiliated with or endorsed by Airwallex.</p>
+  <p class="runline"><span class="chip" id="chip-run" data-provenance="code">RUN: loading</span></p>
+  <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="false"><span class="swatch" aria-hidden="true"></span>Dark mode</button>
+</footer>
+</body>
+</html>

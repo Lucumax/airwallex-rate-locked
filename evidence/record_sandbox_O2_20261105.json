@@ -1,0 +1,153 @@
+{
+ "all_match": true,
+ "call_counts": {
+  "conversion_create": 1,
+  "transfer_create": 1
+ },
+ "complete": true,
+ "envelope": {
+  "beneficiary_id": "4225a295-e670-4f4f-9f9b-d2d98338cfba",
+  "conversion_request_id": "9535218e121741cc980c299c5a97b488",
+  "created_at": "2026-11-05T16:33:59.723499+00:00",
+  "envelope_id": "646eaabe2cf54ede8e9b1765d0758724",
+  "existing_balance_used": "0.00",
+  "expires_at": "2026-11-05T16:34:49+00:00",
+  "invoice_ref": "INV-2040",
+  "mode": "CONVERT",
+  "obligation_id": "O2",
+  "payout_amount": "1000.00",
+  "payout_currency": "GBP",
+  "payout_fee": "0",
+  "payout_method": "LOCAL",
+  "plan_digest": "314094ae3d2075433a40bc015abb9eb0d420662ccef7fb766f190479f9470807",
+  "quote": {
+   "buy_amount": "1000.00",
+   "buy_currency": "GBP",
+   "client_rate": "1.354096",
+   "quote_id": "ba2b08d7-f3d1-3b23-be82-b13a1d8e4390",
+   "sell_amount": "1354.10",
+   "sell_currency": "USD",
+   "usage": "MULTI_USE",
+   "valid_from_at": "2026-11-05T16:33:59+00:00",
+   "valid_to_at": "2026-11-05T16:34:59+00:00"
+  },
+  "supplier_name": "Globex Ltd.",
+  "transfer_request_id": "bb8ee295878f4d4ba9c5a669042807d6",
+  "world": "AIRWALLEX_SANDBOX"
+ },
+ "envelope_digest": "44199e21492d4d784eda32d51447cdbda7781bfe6856289189bcc18822dff79d",
+ "execution_id": "646eaabe2cf54ede8e9b1765d0758724",
+ "generated_at": "2026-11-05T16:34:50.433705+00:00",
+ "provider": {
+  "conversion": {
+   "buy_amount": "1000.00",
+   "buy_currency": "GBP",
+   "client_rate": "1.354096",
+   "conversion_id": "48af533c-62b7-4304-bfb0-0b1b3964f2bd",
+   "quote_id": "ba2b08d7-f3d1-3b23-be82-b13a1d8e4390",
+   "request_id": "9535218e121741cc980c299c5a97b488",
+   "sell_amount": "1354.10",
+   "sell_currency": "USD",
+   "status": "SETTLED"
+  },
+  "transfer": {
+   "beneficiary_id": "4225a295-e670-4f4f-9f9b-d2d98338cfba",
+   "fee_amount": "0",
+   "request_id": "bb8ee295878f4d4ba9c5a669042807d6",
+   "source_currency": "GBP",
+   "status": "PAID",
+   "transfer_amount": "1000.0",
+   "transfer_currency": "GBP",
+   "transfer_id": "dfcf5b6a-8b21-455f-aa89-3372bbb13b67"
+  }
+ },
+ "record_digest": "ea3c84637f2b79619ecfe9ea0e6826677828d5a1fc6cb6b6d98e8ee98cf1c66f",
+ "rows": [
+  {
+   "approved": "GBP/USD",
+   "executed": "GBP/USD",
+   "field": "pair",
+   "matches": true
+  },
+  {
+   "approved": "1354.10",
+   "executed": "1354.10",
+   "field": "sell_amount",
+   "matches": true
+  },
+  {
+   "approved": "1000.00",
+   "executed": "1000.00",
+   "field": "buy_amount",
+   "matches": true
+  },
+  {
+   "approved": "1.354096",
+   "executed": "1.354096",
+   "field": "rate",
+   "matches": true
+  },
+  {
+   "approved": "ba2b08d7-f3d1-3b23-be82-b13a1d8e4390",
+   "executed": "ba2b08d7-f3d1-3b23-be82-b13a1d8e4390",
+   "field": "quote_id",
+   "matches": true
+  },
+  {
+   "approved": "9535218e121741cc980c299c5a97b488",
+   "executed": "9535218e121741cc980c299c5a97b488",
+   "field": "conversion_request_id",
+   "matches": true
+  },
+  {
+   "approved": "-",
+   "executed": "SETTLED",
+   "field": "conversion_status",
+   "matches": null
+  },
+  {
+   "approved": "bb8ee295878f4d4ba9c5a669042807d6",
+   "executed": "bb8ee295878f4d4ba9c5a669042807d6",
+   "field": "payout_request_id",
+   "matches": true
+  },
+  {
+   "approved": "1000.00",
+   "executed": "1000.0",
+   "field": "payout_amount",
+   "matches": true
+  },
+  {
+   "approved": "0",
+   "executed": "0",
+   "field": "payout_fee",
+   "matches": true
+  },
+  {
+   "approved": "4225a295-e670-4f4f-9f9b-d2d98338cfba",
+   "executed": "4225a295-e670-4f4f-9f9b-d2d98338cfba",
+   "field": "beneficiary",
+   "matches": true
+  },
+  {
+   "approved": "GBP",
+   "executed": "GBP",
+   "field": "payout_currency",
+   "matches": true
+  },
+  {
+   "approved": "GBP",
+   "executed": "GBP",
+   "field": "payout_source_currency",
+   "matches": true
+  },
+  {
+   "approved": "-",
+   "executed": "PAID",
+   "field": "payout_status",
+   "matches": null
+  }
+ ],
+ "schema": "rate-locked.record.v1",
+ "state": "PAID"
+}

@@ -1,0 +1,7 @@
+[
+  {"account_type": "cash", "available_amount": 3000, "currency": "USD", "pending_amount": 0, "prepayment_amount": 0, "reserved_amount": 0, "total_amount": 3000},
+  {"account_type": "cash", "available_amount": 1500.5, "currency": "EUR", "pending_amount": 0, "prepayment_amount": 0, "reserved_amount": 0, "total_amount": 1500.5},
+  {"account_type": "cash", "available_amount": 0, "currency": "GBP", "pending_amount": 0, "prepayment_amount": 0, "reserved_amount": 0, "total_amount": 0},
+  {"account_type": "yield", "available_amount": 99999, "currency": "USD", "pending_amount": 0, "reserved_amount": 0, "total_amount": 99999},
+  {"account_type": "credit", "available_amount": 5000, "currency": "EUR", "pending_amount": 0, "reserved_amount": 0, "total_amount": 5000}
+]

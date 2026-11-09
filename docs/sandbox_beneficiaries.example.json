@@ -1,0 +1,38 @@
+{
+  "_how_to_use": "Copy this file to a private path OUTSIDE the repository, replace every REPLACE_ value with sandbox-valid details taken from the beneficiary schema that scripts/sandbox_probe.py records (step P4) for each corridor, then set RATE_LOCKED_BENEFICIARIES to that path. Keys other than the three supplier names are ignored. The field names below follow the public create-beneficiary reference (beneficiary.bank_details needs account_currency, account_name, bank_country_code, and either account_number or iban); the probe schema is the authority for each corridor.",
+  "Acme Co.": {
+    "entity_type": "COMPANY",
+    "company_name": "Acme Co.",
+    "bank_details": {
+      "account_currency": "EUR",
+      "account_name": "Acme Co.",
+      "bank_country_code": "REPLACE_COUNTRY_FROM_PROBE_SCHEMA",
+      "iban": "REPLACE_WITH_SANDBOX_TEST_IBAN"
+    },
+    "address": {"country_code": "REPLACE_COUNTRY_FROM_PROBE_SCHEMA", "city": "REPLACE_CITY", "street_address": "REPLACE_STREET", "postcode": "REPLACE_POSTCODE"}
+  },
+  "Globex Ltd.": {
+    "entity_type": "COMPANY",
+    "company_name": "Globex Ltd.",
+    "bank_details": {
+      "account_currency": "GBP",
+      "account_name": "Globex Ltd.",
+      "bank_country_code": "GB",
+      "account_number": "REPLACE_WITH_SANDBOX_TEST_ACCOUNT_NUMBER",
+      "account_routing_type1": "sort_code",
+      "account_routing_value1": "REPLACE_WITH_SANDBOX_TEST_SORT_CODE"
+    },
+    "address": {"country_code": "GB", "city": "REPLACE_CITY", "street_address": "REPLACE_STREET", "postcode": "REPLACE_POSTCODE"}
+  },
+  "Initech Pte. Ltd.": {
+    "entity_type": "COMPANY",
+    "company_name": "Initech Pte. Ltd.",
+    "bank_details": {
+      "account_currency": "EUR",
+      "account_name": "Initech Pte. Ltd.",
+      "bank_country_code": "REPLACE_COUNTRY_FROM_PROBE_SCHEMA",
+      "iban": "REPLACE_WITH_SANDBOX_TEST_IBAN"
+    },
+    "address": {"country_code": "REPLACE_COUNTRY_FROM_PROBE_SCHEMA", "city": "REPLACE_CITY", "street_address": "REPLACE_STREET", "postcode": "REPLACE_POSTCODE"}
+  }
+}

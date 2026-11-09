@@ -1,0 +1,73 @@
+{
+  "model": "claude-opus-5-5",
+  "label": "MODEL claude-opus-5-5 (reads; code decides)",
+  "started_at": "2026-11-05T16:36:15.310127+00:00",
+  "invoices": [
+    {
+      "invoice_id": "inv-acme",
+      "ready": true,
+      "reply_flags": [],
+      "stop_reason": "end_turn",
+      "field_flags": {},
+      "values": {
+        "supplier": "Acme Co.",
+        "invoice_number": "INV-1001",
+        "amount": "1200.00",
+        "currency": "EUR",
+        "due_date": "2026-11-03 05:00:00+00:00"
+      },
+      "expected": "ready",
+      "as_expected": true,
+      "input_tokens": 1239,
+      "output_tokens": 172,
+      "seconds": 5.58
+    },
+    {
+      "invoice_id": "inv-globex",
+      "ready": true,
+      "reply_flags": [],
+      "stop_reason": "end_turn",
+      "field_flags": {},
+      "values": {
+        "supplier": "Globex Ltd.",
+        "invoice_number": "INV-2040",
+        "amount": "1000.00",
+        "currency": "GBP",
+        "due_date": "2026-11-03 15:00:00+00:00"
+      },
+      "expected": "ready",
+      "as_expected": true,
+      "input_tokens": 1238,
+      "output_tokens": 180,
+      "seconds": 3.44
+    },
+    {
+      "invoice_id": "inv-initech",
+      "ready": false,
+      "reply_flags": [],
+      "stop_reason": "end_turn",
+      "field_flags": {
+        "due_date": [
+          "TIMEZONE_NOT_STATED"
+        ]
+      },
+      "values": {
+        "supplier": "Initech Pte. Ltd.",
+        "invoice_number": "INV-3307",
+        "amount": "2000.00",
+        "currency": "EUR",
+        "due_date": "2026-11-04 21:00:00+00:00"
+      },
+      "expected": "held for review",
+      "as_expected": true,
+      "input_tokens": 1226,
+      "output_tokens": 184,
+      "seconds": 3.03
+    }
+  ],
+  "explanation": {
+    "stop_reason": "end_turn",
+    "number_problems": []
+  },
+  "verdict": "AS EXPECTED"
+}

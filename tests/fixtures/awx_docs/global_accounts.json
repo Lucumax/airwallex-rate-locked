@@ -1,0 +1,8 @@
+{"items": [
+  {"id": "ga-doc-closed", "account_name": "Demo Trading Co.", "country_code": "GB", "status": "CLOSED",
+   "supported_features": [{"currency": "USD", "type": "DEPOSIT", "transfer_method": "LOCAL"}]},
+  {"id": "ga-doc-0001", "account_name": "Demo Trading Co.", "country_code": "GB", "status": "ACTIVE",
+   "required_features": [{"currency": "USD", "transfer_method": "LOCAL"}],
+   "supported_features": [{"currency": "USD", "type": "DEPOSIT", "transfer_method": "LOCAL"},
+                          {"currency": "USD", "type": "DIRECT_DEBIT", "transfer_method": "LOCAL"}]}
+ ], "page_after": null, "page_before": null}

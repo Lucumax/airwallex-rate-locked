@@ -1,0 +1,140 @@
+{
+ "what": "One continuous take against the Airwallex sandbox world (test money), 2026-11-05. Seconds are from the start of the console clip. Approver tokens redacted.",
+ "world_chip": "WORLD: AIRWALLEX SANDBOX",
+ "reader_chip": "READER: MODEL claude-opus-5-5 (reads; code decides)",
+ "execution_calls_on_the_stale_screen": "0",
+ "new_quote_cost_shown": "Costs USD 0.11 less",
+ "page_errors": [],
+ "post_routes": [
+  [
+   "C POST",
+   "/api/review/resolve",
+   200
+  ],
+  [
+   "C POST",
+   "/api/prepare",
+   200
+  ],
+  [
+   "P POST",
+   "/api/approver/<token>/approve",
+   200
+  ],
+  [
+   "C POST",
+   "/api/requote",
+   200
+  ],
+  [
+   "P POST",
+   "/api/approver/<token>/approve",
+   200
+  ],
+  [
+   "C POST",
+   "/api/record",
+   200
+  ],
+  [
+   "C POST",
+   "/api/verify",
+   200
+  ],
+  [
+   "C POST",
+   "/api/dispatch",
+   200
+  ],
+  [
+   "C POST",
+   "/api/record",
+   200
+  ],
+  [
+   "C POST",
+   "/api/verify",
+   200
+  ],
+  [
+   "C POST",
+   "/api/transition",
+   200
+  ],
+  [
+   "C POST",
+   "/api/record",
+   200
+  ],
+  [
+   "C POST",
+   "/api/verify",
+   200
+  ],
+  [
+   "C POST",
+   "/api/record",
+   200
+  ],
+  [
+   "C POST",
+   "/api/verify",
+   200
+  ],
+  [
+   "C POST",
+   "/api/verify",
+   200
+  ]
+ ],
+ "marks": {
+  "u1": 0.645,
+  "u1_0": 1.246,
+  "u1_1": 8.257,
+  "u1_2": 15.074,
+  "confirm_click": 15.48,
+  "u1_confirmed": 46.731,
+  "plan_click": 48.632,
+  "plan_ready": 49.174,
+  "u2": 49.174,
+  "u2_0": 49.311,
+  "u2_1": 55.938,
+  "lock_click": 65.627,
+  "approval_shown": 79.441,
+  "u3": 79.667,
+  "phone_offset": 79.668,
+  "phone_on": 80.18,
+  "u3_0": 80.311,
+  "u3_1": 88.801,
+  "u3_2": 93.31,
+  "u4": 98.294,
+  "u4_0": 98.294,
+  "u4_quiet_start": 103.144,
+  "ring_urgent": 114.43,
+  "phone_expired": 139.68,
+  "u4_1": 141.157,
+  "tap_late": 142.937,
+  "phone_refused": 143.074,
+  "stale_shown": 145.384,
+  "requote_click": 150.834,
+  "cost_shown": 153.688,
+  "u4_2": 153.69,
+  "phone2_loaded": 165.535,
+  "u4_3": 166.007,
+  "approved2": 169.371,
+  "approval2_shown": 170.773,
+  "exec_click": 172.657,
+  "record_shown": 192.602,
+  "u5": 192.602,
+  "u5_0": 192.676,
+  "u5_1": 198.805,
+  "paid_click": 232.534,
+  "paid_shown": 243.544,
+  "verify_shown": 244.639,
+  "u5_2": 244.639,
+  "verify_pass": 248.747,
+  "verify_fail": 253.923,
+  "end": 255.261,
+  "total": 255.261
+ }
+}

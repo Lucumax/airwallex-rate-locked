@@ -1,0 +1,1991 @@
+{
+  "base_url": "https://api.sandbox.airwallex.com",
+  "decision_hint": "Quote works (P5, P6). Run again with --convert to test the quote-backed conversion (P7).",
+  "facts": {
+    "balances": {
+      "AED": "0",
+      "ARS": "0",
+      "AUD": "0",
+      "BDT": "0",
+      "BHD": "0",
+      "BOB": "0",
+      "BRL": "0",
+      "CAD": "0",
+      "CHF": "0",
+      "CLP": "0",
+      "CNY": "10000000",
+      "COP": "0",
+      "CZK": "0",
+      "DKK": "0",
+      "EGP": "0",
+      "EUR": "10000000",
+      "GBP": "10000000",
+      "HKD": "0",
+      "HRK": "0",
+      "HUF": "0",
+      "IDR": "0",
+      "ILS": "0",
+      "INR": "0",
+      "JPY": "0",
+      "KRW": "0",
+      "LKR": "0",
+      "MAD": "0",
+      "MXN": "0",
+      "MYR": "0",
+      "NOK": "0",
+      "NPR": "0",
+      "NZD": "0",
+      "PEN": "0",
+      "PHP": "0",
+      "PKR": "0",
+      "PLN": "0",
+      "RON": "0",
+      "SAR": "0",
+      "SEK": "0",
+      "SGD": "0",
+      "THB": "0",
+      "TRY": "0",
+      "USD": "10000000",
+      "UYU": "0",
+      "VND": "0",
+      "ZAR": "0"
+    },
+    "currencies": [
+      "AED",
+      "ARS",
+      "AUD",
+      "BDT",
+      "BHD",
+      "BOB",
+      "BRL",
+      "CAD",
+      "CHF",
+      "CLP",
+      "CNY",
+      "COP",
+      "CZK",
+      "DKK",
+      "EGP",
+      "EUR",
+      "GBP",
+      "HKD",
+      "HRK",
+      "HUF",
+      "[26 more items not shown]"
+    ],
+    "quote": {
+      "client_rate": "1.353656",
+      "usage": "MULTI_USE",
+      "valid_from_at": "2026-11-05T16:09:50+0000",
+      "valid_to_at": "2026-11-05T16:10:50+0000"
+    },
+    "zero_balance_currencies": [
+      "AED",
+      "ARS",
+      "AUD",
+      "BDT",
+      "BHD",
+      "BOB",
+      "BRL",
+      "CAD",
+      "CHF",
+      "CLP",
+      "COP",
+      "CZK",
+      "DKK",
+      "EGP",
+      "HKD",
+      "HRK",
+      "HUF",
+      "IDR",
+      "ILS",
+      "INR",
+      "[22 more items not shown]"
+    ]
+  },
+  "intents": [],
+  "options": {
+    "amount": "1.00",
+    "base_url": "https://api.sandbox.airwallex.com",
+    "beneficiaries": "None",
+    "buy": "GBP",
+    "convert": "False",
+    "corridors": "['DE:EUR', 'GB:GBP']",
+    "docs_mcp": "False",
+    "dry_run": "False",
+    "expiry_test": "False",
+    "expiry_wait": "65",
+    "out": "evidence",
+    "payout": "False",
+    "sell": "USD",
+    "simulate_deposit": "False",
+    "supplier": "None"
+  },
+  "python": "3.11.15",
+  "started_at": "2026-11-05T16:09:29.689461+00:00",
+  "steps": [
+    {
+      "elapsed_ms": 2952,
+      "http_status": 201,
+      "id": "P1",
+      "method": "POST",
+      "name": "authenticate",
+      "note": "",
+      "ok": true,
+      "path": "/api/v1/authentication/login",
+      "request": null,
+      "response": {
+        "expires_at": "2026-11-05T16:39:31+0000",
+        "token": "[redacted]"
+      },
+      "version_headers": {}
+    },
+    {
+      "elapsed_ms": 1218,
+      "http_status": 200,
+      "id": "P2",
+      "method": "GET",
+      "name": "balances",
+      "note": "zero-balance wallets (candidates for an honest conversion): ['AED', 'ARS', 'AUD', 'BDT', 'BHD', 'BOB', 'BRL', 'CAD', 'CHF', 'CLP', 'COP', 'CZK', 'DKK', 'EGP', 'HKD', 'HRK', 'HUF', 'IDR', 'ILS', 'INR', 'JPY', 'KRW', 'LKR', 'MAD', 'MXN', 'MYR', 'NOK', 'NPR', 'NZD', 'PEN', 'PHP', 'PKR', 'PLN', 'RON', '...[truncated]",
+      "ok": true,
+      "path": "/api/v1/balances/current",
+      "request": null,
+      "response": [
+        {
+          "account_type": "cash",
+          "available_amount": 0,
+          "currency": "AED",
+          "pending_amount": 0,
+          "prepayment_amount": 0,
+          "reserved_amount": 0,
+          "total_amount": 0
+        },
+        {
+          "account_type": "cash",
+          "available_amount": 0,
+          "currency": "ARS",
+          "pending_amount": 0,
+          "prepayment_amount": 0,
+          "reserved_amount": 0,
+          "total_amount": 0
+        },
+        {
+          "account_type": "cash",
+          "available_amount": 0,
+          "currency": "AUD",
+          "pending_amount": 0,
+          "prepayment_amount": 0,
+          "reserved_amount": 0,
+          "total_amount": 0
+        },
+        {
+          "account_type": "cash",
+          "available_amount": 0,
+          "currency": "BDT",
+          "pending_amount": 0,
+          "prepayment_amount": 0,
+          "reserved_amount": 0,
+          "total_amount": 0
+        },
+        {
+          "account_type": "cash",
+          "available_amount": 0,
+          "currency": "BHD",
+          "pending_amount": 0,
+          "prepayment_amount": 0,
+          "reserved_amount": 0,
+          "total_amount": 0
+        },
+        {
+          "account_type": "cash",
+          "available_amount": 0,
+          "currency": "BOB",
+          "pending_amount": 0,
+          "prepayment_amount": 0,
+          "reserved_amount": 0,
+          "total_amount": 0
+        },
+        {
+          "account_type": "cash",
+          "available_amount": 0,
+          "currency": "BRL",
+          "pending_amount": 0,
+          "prepayment_amount": 0,
+          "reserved_amount": 0,
+          "total_amount": 0
+        },
+        {
+          "account_type": "cash",
+          "available_amount": 0,
+          "currency": "CAD",
+          "pending_amount": 0,
+          "prepayment_amount": 0,
+          "reserved_amount": 0,
+          "total_amount": 0
+        },
+        {
+          "account_type": "cash",
+          "available_amount": 0,
+          "currency": "CHF",
+          "pending_amount": 0,
+          "prepayment_amount": 0,
+          "reserved_amount": 0,
+          "total_amount": 0
+        },
+        {
+          "account_type": "cash",
+          "available_amount": 0,
+          "currency": "CLP",
+          "pending_amount": 0,
+          "prepayment_amount": 0,
+          "reserved_amount": 0,
+          "total_amount": 0
+        },
+        {
+          "account_type": "cash",
+          "available_amount": 10000000,
+          "currency": "CNY",
+          "pending_amount": 0,
+          "prepayment_amount": 0,
+          "reserved_amount": 0,
+          "total_amount": 10000000
+        },
+        {
+          "account_type": "cash",
+          "available_amount": 0,
+          "currency": "COP",
+          "pending_amount": 0,
+          "prepayment_amount": 0,
+          "reserved_amount": 0,
+          "total_amount": 0
+        },
+        {
+          "account_type": "cash",
+          "available_amount": 0,
+          "currency": "CZK",
+          "pending_amount": 0,
+          "prepayment_amount": 0,
+          "reserved_amount": 0,
+          "total_amount": 0
+        },
+        {
+          "account_type": "cash",
+          "available_amount": 0,
+          "currency": "DKK",
+          "pending_amount": 0,
+          "prepayment_amount": 0,
+          "reserved_amount": 0,
+          "total_amount": 0
+        },
+        {
+          "account_type": "cash",
+          "available_amount": 0,
+          "currency": "EGP",
+          "pending_amount": 0,
+          "prepayment_amount": 0,
+          "reserved_amount": 0,
+          "total_amount": 0
+        },
+        {
+          "account_type": "cash",
+          "available_amount": 10000000,
+          "currency": "EUR",
+          "pending_amount": 0,
+          "prepayment_amount": 0,
+          "reserved_amount": 0,
+          "total_amount": 10000000
+        },
+        {
+          "account_type": "cash",
+          "available_amount": 10000000,
+          "currency": "GBP",
+          "pending_amount": 0,
+          "prepayment_amount": 0,
+          "reserved_amount": 0,
+          "total_amount": 10000000
+        },
+        {
+          "account_type": "cash",
+          "available_amount": 0,
+          "currency": "HKD",
+          "pending_amount": 0,
+          "prepayment_amount": 0,
+          "reserved_amount": 0,
+          "total_amount": 0
+        },
+        {
+          "account_type": "cash",
+          "available_amount": 0,
+          "currency": "HRK",
+          "pending_amount": 0,
+          "prepayment_amount": 0,
+          "reserved_amount": 0,
+          "total_amount": 0
+        },
+        {
+          "account_type": "cash",
+          "available_amount": 0,
+          "currency": "HUF",
+          "pending_amount": 0,
+          "prepayment_amount": 0,
+          "reserved_amount": 0,
+          "total_amount": 0
+        },
+        "[26 more items not shown]"
+      ],
+      "version_headers": {}
+    },
+    {
+      "elapsed_ms": 0,
+      "http_status": null,
+      "id": "P3",
+      "method": "-",
+      "name": "account API version",
+      "note": "Default account version applies. No x-api-version header was sent.",
+      "ok": true,
+      "path": "-",
+      "request": null,
+      "response": "no version header seen",
+      "version_headers": {}
+    },
+    {
+      "elapsed_ms": 3531,
+      "http_status": 200,
+      "id": "P4",
+      "method": "POST",
+      "name": "beneficiary schema DE:EUR",
+      "note": "guide path",
+      "ok": true,
+      "path": "/api/v1/beneficiaries/schema",
+      "request": {
+        "country_code": "DE",
+        "currency": "EUR",
+        "entity_type": "COMPANY",
+        "transfer_method": "LOCAL"
+      },
+      "response": {
+        "errors": {},
+        "schema": {
+          "create_beneficiary_request": {
+            "relevant": true,
+            "required": true,
+            "rules_known": true,
+            "schema_input_only": false,
+            "type": "object",
+            "validation_functions": []
+          },
+          "create_beneficiary_request.beneficiary": {
+            "relevant": true,
+            "required": true,
+            "rules_known": true,
+            "schema_input_only": false,
+            "type": "object",
+            "validation_functions": []
+          },
+          "create_beneficiary_request.beneficiary.additional_info": {
+            "relevant": true,
+            "required": false,
+            "rules_known": true,
+            "schema_input_only": false,
+            "type": "object"
+          },
+          "create_beneficiary_request.beneficiary.additional_info.business_area": {
+            "depends_on": "beneficiary.entity_type",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.additional_info.business_phone_number": {
+            "depends_on": "beneficiary.entity_type",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.additional_info.business_registration_number": {
+            "depends_on": "beneficiary.entity_type",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.additional_info.legal_rep_bank_account_number": {
+            "depends_on": "beneficiary.entity_type",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.additional_info.legal_rep_first_name_in_chinese": {
+            "depends_on": "beneficiary.entity_type",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.additional_info.legal_rep_id_number": {
+            "depends_on": "beneficiary.entity_type",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.additional_info.legal_rep_last_name_in_chinese": {
+            "depends_on": "beneficiary.entity_type",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.additional_info.legal_rep_mobile_number": {
+            "depends_on": "beneficiary.entity_type",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.additional_info.personal_email": {
+            "relevant": true,
+            "required": false,
+            "rules_known": true,
+            "schema_input_only": false,
+            "type": "string",
+            "validation_functions": [
+              {
+                "description": "Should be a valid email address",
+                "name": "Email",
+                "parameters": {}
+              }
+            ]
+          },
+          "create_beneficiary_request.beneficiary.additional_info.personal_first_name_in_chinese": {
+            "depends_on": "beneficiary.entity_type",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.additional_info.personal_id_number": {
+            "depends_on": "beneficiary.entity_type",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.additional_info.personal_id_type": {
+            "depends_on": "beneficiary.entity_type",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.additional_info.personal_last_name_in_chinese": {
+            "depends_on": "beneficiary.entity_type",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.additional_info.personal_mobile_number": {
+            "depends_on": "beneficiary.entity_type",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.additional_info.personal_nationality": {
+            "depends_on": "beneficiary.entity_type",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.address": {
+            "relevant": true,
+            "required": true,
+            "rules_known": true,
+            "schema_input_only": false,
+            "type": "object"
+          },
+          "create_beneficiary_request.beneficiary.address.city": {
+            "relevant": true,
+            "required": true,
+            "rules_known": true,
+            "schema_input_only": false,
+            "type": "string",
+            "validation_functions": [
+              {
+                "description": "Should contain 1 to 50 characters",
+                "name": "MinMaxLength",
+                "parameters": {
+                  "max": 50,
+                  "min": 1
+                }
+              }
+            ]
+          },
+          "create_beneficiary_request.beneficiary.address.country_code": {
+            "relevant": true,
+            "required": true,
+            "rules_known": true,
+            "schema_input_only": false,
+            "type": "string",
+            "validation_functions": [
+              {
+                "description": "Should be one of the following: [AC, AD, AE, AG, AI, AL, AM, AN, AO, AQ, AR, AS, AT, AU, AW, AX, AZ, BA, BB, BD, BE, BF, BG, BH, BI, BJ, BL, BM, BN, BO, BQ, BR, BS, BT, BU, BV, BW, BZ, CA, CC, CF, CG, CH, CI, CK, CL, CM, CN, CO, CP, CR, CS, CV, CW, CX, CY, CZ, DE, DG, DJ, DK, DM, DO, DZ, EA, EC, EE,...[truncated]",
+                "name": "OneOf",
+                "parameters": {
+                  "values": [
+                    {
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    "[233 more items not shown]"
+                  ]
+                }
+              }
+            ]
+          },
+          "create_beneficiary_request.beneficiary.address.postcode": {
+            "depends_on": "beneficiary.address.country_code",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.address.state": {
+            "depends_on": "beneficiary.address.country_code",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.address.street_address": {
+            "depends_on": "beneficiary.bank_details.bank_country_code",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.bank_details": {
+            "relevant": true,
+            "required": true,
+            "rules_known": true,
+            "schema_input_only": false,
+            "type": "object"
+          },
+          "create_beneficiary_request.beneficiary.bank_details.account_currency": {
+            "relevant": true,
+            "required": true,
+            "rules_known": true,
+            "schema_input_only": false,
+            "type": "string",
+            "validation_functions": [
+              {
+                "description": "Should be one of the following: [CHF, FJD, ALL, MXN, SCR, ZMW, GTQ, BBD, CLP, HNL, ZAR, TND, TZS, VND, AUD, ILS, BSD, GHS, GYD, BOB, IDR, AMD, TRY, BWP, JOD, GMD, HKD, AED, RWF, RSD, EUR, LSL, DOP, DKK, CAD, MYR, BGN, NOK, MUR, XOF, GEL, RON, UYU, MAD, LKR, NGN, CZK, OMR, AZN, CRC, PKR, SEK, KES, BH...[truncated]",
+                "name": "OneOf",
+                "parameters": {
+                  "values": [
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "value": "[too deep]"
+                    },
+                    {
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "value": "[too deep]"
+                    },
+                    {
+                      "value": "[too deep]"
+                    },
+                    {
+                      "value": "[too deep]"
+                    },
+                    {
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "value": "[too deep]"
+                    },
+                    {
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "value": "[too deep]"
+                    },
+                    {
+                      "value": "[too deep]"
+                    },
+                    {
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    "[71 more items not shown]"
+                  ]
+                }
+              }
+            ]
+          },
+          "create_beneficiary_request.beneficiary.bank_details.account_name": {
+            "depends_on": "beneficiary.bank_details.bank_country_code",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.bank_details.account_number": {
+            "depends_on": "beneficiary.bank_details.bank_country_code",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.bank_details.account_routing_type1": {
+            "depends_on": "payment_methods",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.bank_details.account_routing_type2": {
+            "depends_on": "payment_methods",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.bank_details.account_routing_value1": {
+            "depends_on": "payment_methods",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.bank_details.account_routing_value2": {
+            "depends_on": "payment_methods",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.bank_details.bank_account_category": {
+            "depends_on": "beneficiary.bank_details.bank_country_code",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.bank_details.bank_branch": {
+            "depends_on": "beneficiary.bank_details.bank_country_code",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.bank_details.bank_country_code": {
+            "relevant": true,
+            "required": true,
+            "rules_known": true,
+            "schema_input_only": false,
+            "type": "string",
+            "validation_functions": [
+              {
+                "description": "Should be one of the following: [AD, AE, AG, AI, AL, AM, AN, AO, AR, AT, AU, AW, AZ, BA, BD, BE, BG, BH, BL, BO, BR, BW, BZ, CA, CH, CL, CN, CO, CR, CW, CY, CZ, DE, DK, DM, DO, DZ, EC, EE, EG, ES, FI, FJ, FR, FO, GB, GD, GE, GF, GG, GI, GL, GQ, GR, GT, GY, HK, HN, HR, HU, IC, ID, IE, IL, IM, IN, IS,...[truncated]",
+                "name": "OneOf",
+                "parameters": {
+                  "values": [
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    "[131 more items not shown]"
+                  ]
+                }
+              }
+            ]
+          },
+          "create_beneficiary_request.beneficiary.bank_details.bank_name": {
+            "relevant": true,
+            "required": true,
+            "rules_known": true,
+            "schema_input_only": false,
+            "type": "string",
+            "validation_functions": [
+              {
+                "description": "Should contain 1 to 200 characters",
+                "name": "MinMaxLength",
+                "parameters": {
+                  "max": 200,
+                  "min": 1
+                }
+              },
+              {
+                "description": "Should not contain emojis",
+                "name": "EmojisIsNotSupported",
+                "parameters": {}
+              }
+            ]
+          },
+          "create_beneficiary_request.beneficiary.bank_details.binding_mobile_number": {
+            "depends_on": "beneficiary.bank_details.bank_country_code",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.bank_details.iban": {
+            "depends_on": "beneficiary.bank_details.bank_country_code",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.bank_details.swift_code": {
+            "depends_on": "beneficiary.bank_details.bank_country_code",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.company_name": {
+            "depends_on": "beneficiary.entity_type",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.date_of_birth": {
+            "depends_on": "beneficiary.entity_type",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.entity_type": {
+            "relevant": true,
+            "required": true,
+            "rules_known": true,
+            "schema_input_only": false,
+            "type": "string",
+            "validation_functions": [
+              {
+                "description": "Should be one of the following: [PERSONAL, COMPANY]",
+                "name": "OneOf",
+                "parameters": {
+                  "values": [
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "create_beneficiary_request.beneficiary.first_name": {
+            "depends_on": "beneficiary.entity_type",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.last_name": {
+            "depends_on": "beneficiary.entity_type",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.nickname": {
+            "relevant": true,
+            "required": false,
+            "rules_known": true,
+            "schema_input_only": false,
+            "type": "string",
+            "validation_functions": []
+          },
+          "create_beneficiary_request.payer_entity_type": {
+            "depends_on": "beneficiary.bank_details.bank_country_code",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.payment_methods": {
+            "relevant": true,
+            "required": true,
+            "rules_known": true,
+            "schema_input_only": false,
+            "type": "array",
+            "validation_functions": [
+              {
+                "description": "Should contain at least 1 item(s)",
+                "name": "MinItems",
+                "parameters": {
+                  "min": 1
+                }
+              }
+            ]
+          },
+          "create_beneficiary_request.payment_methods.item": {
+            "depends_on": "beneficiary.bank_details.bank_country_code",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          }
+        }
+      },
+      "version_headers": {}
+    },
+    {
+      "elapsed_ms": 2968,
+      "http_status": 200,
+      "id": "P4",
+      "method": "POST",
+      "name": "beneficiary schema DE:EUR",
+      "note": "reference path",
+      "ok": true,
+      "path": "/api/v1/beneficiary_api_schemas/generate",
+      "request": {
+        "country_code": "DE",
+        "currency": "EUR",
+        "entity_type": "COMPANY",
+        "transfer_method": "LOCAL"
+      },
+      "response": {
+        "condition": {},
+        "fields": [
+          {
+            "key": "entity_type",
+            "path": "beneficiary.entity_type",
+            "required": true,
+            "rule": {
+              "pattern": "COMPANY|PERSONAL",
+              "type": "string"
+            }
+          },
+          {
+            "key": "bank_country_code",
+            "path": "beneficiary.bank_details.bank_country_code",
+            "required": true,
+            "rule": {
+              "pattern": "AD|AE|AG|AI|AL|AM|AO|AR|AT|AU|AW|AZ|BA|BD|BE|BG|BH|BL|BO|BR|BW|BZ|CA|CH|CL|CN|CO|CR|CW|CY|CZ|DE|DK|DM|DO|DZ|EC|EE|EG|ES|FI|FJ|FR|FO|GB|GD|GE|GF|GG|GI|GL|GQ|GR|GT|GY|HK|HN|HR|HU|IC|ID|IE|IL|IM|IN|IS|IT|JE|JM|JO|JP|KE|KG|KH|KR|KZ|KW|LC|LI|LK|LT|LU|LV|MA|MC|MD|ME|MF|MK|MO|MQ|MR|MT|MU|MV|MX|MY|NA|NC|NG|...[truncated]",
+              "type": "string"
+            }
+          },
+          {
+            "key": "account_currency",
+            "path": "beneficiary.bank_details.account_currency",
+            "required": true,
+            "rule": {
+              "pattern": "AED|ALL|AMD|AOA|ARS|AUD|AZN|BAM|BBD|BDT|BHD|BOB|BRL|BSD|BWP|BZD|CAD|CHF|CLP|CNY|COP|CRC|CZK|DKK|DOP|DZD|EGP|EUR|FJD|GBP|GEL|GHS|GMD|GTQ|GYD|HKD|HNL|HUF|IDR|ILS|INR|ISK|JMD|JOD|JPY|KES|KGS|KRW|KWD|KZT|LKR|LSL|MAD|MGA|MUR|MWK|MXN|MYR|NAD|NGN|NIO|NOK|NPR|NZD|OMR|PEN|PHP|PKR|PLN|PYG|QAR|RON|RSD|RWF|SAR|...[truncated]",
+              "type": "string"
+            }
+          },
+          {
+            "key": "transfer_method",
+            "path": "transfer_methods",
+            "required": true,
+            "rule": {
+              "pattern": "",
+              "type": "string"
+            }
+          }
+        ],
+        "key": "newRecipient"
+      },
+      "version_headers": {}
+    },
+    {
+      "elapsed_ms": 2250,
+      "http_status": 200,
+      "id": "P4",
+      "method": "POST",
+      "name": "beneficiary schema GB:GBP",
+      "note": "guide path",
+      "ok": true,
+      "path": "/api/v1/beneficiaries/schema",
+      "request": {
+        "country_code": "GB",
+        "currency": "GBP",
+        "entity_type": "COMPANY",
+        "transfer_method": "LOCAL"
+      },
+      "response": {
+        "errors": {},
+        "schema": {
+          "create_beneficiary_request": {
+            "relevant": true,
+            "required": true,
+            "rules_known": true,
+            "schema_input_only": false,
+            "type": "object",
+            "validation_functions": []
+          },
+          "create_beneficiary_request.beneficiary": {
+            "relevant": true,
+            "required": true,
+            "rules_known": true,
+            "schema_input_only": false,
+            "type": "object",
+            "validation_functions": []
+          },
+          "create_beneficiary_request.beneficiary.additional_info": {
+            "relevant": true,
+            "required": false,
+            "rules_known": true,
+            "schema_input_only": false,
+            "type": "object"
+          },
+          "create_beneficiary_request.beneficiary.additional_info.business_area": {
+            "depends_on": "beneficiary.entity_type",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.additional_info.business_phone_number": {
+            "depends_on": "beneficiary.entity_type",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.additional_info.business_registration_number": {
+            "depends_on": "beneficiary.entity_type",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.additional_info.legal_rep_bank_account_number": {
+            "depends_on": "beneficiary.entity_type",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.additional_info.legal_rep_first_name_in_chinese": {
+            "depends_on": "beneficiary.entity_type",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.additional_info.legal_rep_id_number": {
+            "depends_on": "beneficiary.entity_type",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.additional_info.legal_rep_last_name_in_chinese": {
+            "depends_on": "beneficiary.entity_type",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.additional_info.legal_rep_mobile_number": {
+            "depends_on": "beneficiary.entity_type",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.additional_info.personal_email": {
+            "relevant": true,
+            "required": false,
+            "rules_known": true,
+            "schema_input_only": false,
+            "type": "string",
+            "validation_functions": [
+              {
+                "description": "Should be a valid email address",
+                "name": "Email",
+                "parameters": {}
+              }
+            ]
+          },
+          "create_beneficiary_request.beneficiary.additional_info.personal_first_name_in_chinese": {
+            "depends_on": "beneficiary.entity_type",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.additional_info.personal_id_number": {
+            "depends_on": "beneficiary.entity_type",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.additional_info.personal_id_type": {
+            "depends_on": "beneficiary.entity_type",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.additional_info.personal_last_name_in_chinese": {
+            "depends_on": "beneficiary.entity_type",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.additional_info.personal_mobile_number": {
+            "depends_on": "beneficiary.entity_type",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.additional_info.personal_nationality": {
+            "depends_on": "beneficiary.entity_type",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.address": {
+            "relevant": true,
+            "required": true,
+            "rules_known": true,
+            "schema_input_only": false,
+            "type": "object"
+          },
+          "create_beneficiary_request.beneficiary.address.city": {
+            "relevant": true,
+            "required": true,
+            "rules_known": true,
+            "schema_input_only": false,
+            "type": "string",
+            "validation_functions": [
+              {
+                "description": "Should contain 1 to 50 characters",
+                "name": "MinMaxLength",
+                "parameters": {
+                  "max": 50,
+                  "min": 1
+                }
+              }
+            ]
+          },
+          "create_beneficiary_request.beneficiary.address.country_code": {
+            "relevant": true,
+            "required": true,
+            "rules_known": true,
+            "schema_input_only": false,
+            "type": "string",
+            "validation_functions": [
+              {
+                "description": "Should be one of the following: [AC, AD, AE, AG, AI, AL, AM, AN, AO, AQ, AR, AS, AT, AU, AW, AX, AZ, BA, BB, BD, BE, BF, BG, BH, BI, BJ, BL, BM, BN, BO, BQ, BR, BS, BT, BU, BV, BW, BZ, CA, CC, CF, CG, CH, CI, CK, CL, CM, CN, CO, CP, CR, CS, CV, CW, CX, CY, CZ, DE, DG, DJ, DK, DM, DO, DZ, EA, EC, EE,...[truncated]",
+                "name": "OneOf",
+                "parameters": {
+                  "values": [
+                    {
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    "[233 more items not shown]"
+                  ]
+                }
+              }
+            ]
+          },
+          "create_beneficiary_request.beneficiary.address.postcode": {
+            "depends_on": "beneficiary.address.country_code",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.address.state": {
+            "depends_on": "beneficiary.address.country_code",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.address.street_address": {
+            "depends_on": "beneficiary.bank_details.bank_country_code",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.bank_details": {
+            "relevant": true,
+            "required": true,
+            "rules_known": true,
+            "schema_input_only": false,
+            "type": "object"
+          },
+          "create_beneficiary_request.beneficiary.bank_details.account_currency": {
+            "relevant": true,
+            "required": true,
+            "rules_known": true,
+            "schema_input_only": false,
+            "type": "string",
+            "validation_functions": [
+              {
+                "description": "Should be one of the following: [CHF, FJD, ALL, MXN, SCR, ZMW, GTQ, BBD, CLP, HNL, ZAR, TND, TZS, VND, AUD, ILS, BSD, GHS, GYD, BOB, IDR, AMD, TRY, BWP, JOD, GMD, HKD, AED, RWF, RSD, EUR, LSL, DOP, DKK, CAD, MYR, BGN, NOK, MUR, XOF, GEL, RON, UYU, MAD, LKR, NGN, CZK, OMR, AZN, CRC, PKR, SEK, KES, BH...[truncated]",
+                "name": "OneOf",
+                "parameters": {
+                  "values": [
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "value": "[too deep]"
+                    },
+                    {
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "value": "[too deep]"
+                    },
+                    {
+                      "value": "[too deep]"
+                    },
+                    {
+                      "value": "[too deep]"
+                    },
+                    {
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "value": "[too deep]"
+                    },
+                    {
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "value": "[too deep]"
+                    },
+                    {
+                      "value": "[too deep]"
+                    },
+                    {
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    "[71 more items not shown]"
+                  ]
+                }
+              }
+            ]
+          },
+          "create_beneficiary_request.beneficiary.bank_details.account_name": {
+            "depends_on": "beneficiary.bank_details.bank_country_code",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.bank_details.account_number": {
+            "depends_on": "beneficiary.bank_details.bank_country_code",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.bank_details.account_routing_type1": {
+            "depends_on": "payment_methods",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.bank_details.account_routing_type2": {
+            "depends_on": "payment_methods",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.bank_details.account_routing_value1": {
+            "depends_on": "payment_methods",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.bank_details.account_routing_value2": {
+            "depends_on": "payment_methods",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.bank_details.bank_account_category": {
+            "depends_on": "beneficiary.bank_details.bank_country_code",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.bank_details.bank_branch": {
+            "depends_on": "beneficiary.bank_details.bank_country_code",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.bank_details.bank_country_code": {
+            "relevant": true,
+            "required": true,
+            "rules_known": true,
+            "schema_input_only": false,
+            "type": "string",
+            "validation_functions": [
+              {
+                "description": "Should be one of the following: [AD, AE, AG, AI, AL, AM, AN, AO, AR, AT, AU, AW, AZ, BA, BD, BE, BG, BH, BL, BO, BR, BW, BZ, CA, CH, CL, CN, CO, CR, CW, CY, CZ, DE, DK, DM, DO, DZ, EC, EE, EG, ES, FI, FJ, FR, FO, GB, GD, GE, GF, GG, GI, GL, GQ, GR, GT, GY, HK, HN, HR, HU, IC, ID, IE, IL, IM, IN, IS,...[truncated]",
+                "name": "OneOf",
+                "parameters": {
+                  "values": [
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    "[131 more items not shown]"
+                  ]
+                }
+              }
+            ]
+          },
+          "create_beneficiary_request.beneficiary.bank_details.bank_name": {
+            "relevant": true,
+            "required": true,
+            "rules_known": true,
+            "schema_input_only": false,
+            "type": "string",
+            "validation_functions": [
+              {
+                "description": "Should contain 1 to 200 characters",
+                "name": "MinMaxLength",
+                "parameters": {
+                  "max": 200,
+                  "min": 1
+                }
+              },
+              {
+                "description": "Should not contain emojis",
+                "name": "EmojisIsNotSupported",
+                "parameters": {}
+              }
+            ]
+          },
+          "create_beneficiary_request.beneficiary.bank_details.binding_mobile_number": {
+            "depends_on": "beneficiary.bank_details.bank_country_code",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.bank_details.iban": {
+            "depends_on": "beneficiary.bank_details.bank_country_code",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.bank_details.swift_code": {
+            "depends_on": "beneficiary.bank_details.bank_country_code",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.company_name": {
+            "depends_on": "beneficiary.entity_type",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.date_of_birth": {
+            "depends_on": "beneficiary.entity_type",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.entity_type": {
+            "relevant": true,
+            "required": true,
+            "rules_known": true,
+            "schema_input_only": false,
+            "type": "string",
+            "validation_functions": [
+              {
+                "description": "Should be one of the following: [PERSONAL, COMPANY]",
+                "name": "OneOf",
+                "parameters": {
+                  "values": [
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    },
+                    {
+                      "title": "[too deep]",
+                      "value": "[too deep]"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "create_beneficiary_request.beneficiary.first_name": {
+            "depends_on": "beneficiary.entity_type",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.beneficiary.last_name": {
+            "depends_on": "beneficiary.entity_type",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.nickname": {
+            "relevant": true,
+            "required": false,
+            "rules_known": true,
+            "schema_input_only": false,
+            "type": "string",
+            "validation_functions": []
+          },
+          "create_beneficiary_request.payer_entity_type": {
+            "depends_on": "beneficiary.bank_details.bank_country_code",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          },
+          "create_beneficiary_request.payment_methods": {
+            "relevant": true,
+            "required": true,
+            "rules_known": true,
+            "schema_input_only": false,
+            "type": "array",
+            "validation_functions": [
+              {
+                "description": "Should contain at least 1 item(s)",
+                "name": "MinItems",
+                "parameters": {
+                  "min": 1
+                }
+              }
+            ]
+          },
+          "create_beneficiary_request.payment_methods.item": {
+            "depends_on": "beneficiary.bank_details.bank_country_code",
+            "rules_known": false,
+            "schema_input_only": false,
+            "schema_unknown_reason": "DEPENDENCY_NOT_PROVIDED",
+            "type": "string"
+          }
+        }
+      },
+      "version_headers": {}
+    },
+    {
+      "elapsed_ms": 3250,
+      "http_status": 200,
+      "id": "P4",
+      "method": "POST",
+      "name": "beneficiary schema GB:GBP",
+      "note": "reference path",
+      "ok": true,
+      "path": "/api/v1/beneficiary_api_schemas/generate",
+      "request": {
+        "country_code": "GB",
+        "currency": "GBP",
+        "entity_type": "COMPANY",
+        "transfer_method": "LOCAL"
+      },
+      "response": {
+        "condition": {},
+        "fields": [
+          {
+            "key": "entity_type",
+            "path": "beneficiary.entity_type",
+            "required": true,
+            "rule": {
+              "pattern": "COMPANY|PERSONAL",
+              "type": "string"
+            }
+          },
+          {
+            "key": "bank_country_code",
+            "path": "beneficiary.bank_details.bank_country_code",
+            "required": true,
+            "rule": {
+              "pattern": "AD|AE|AG|AI|AL|AM|AO|AR|AT|AU|AW|AZ|BA|BD|BE|BG|BH|BL|BO|BR|BW|BZ|CA|CH|CL|CN|CO|CR|CW|CY|CZ|DE|DK|DM|DO|DZ|EC|EE|EG|ES|FI|FJ|FR|FO|GB|GD|GE|GF|GG|GI|GL|GQ|GR|GT|GY|HK|HN|HR|HU|IC|ID|IE|IL|IM|IN|IS|IT|JE|JM|JO|JP|KE|KG|KH|KR|KZ|KW|LC|LI|LK|LT|LU|LV|MA|MC|MD|ME|MF|MK|MO|MQ|MR|MT|MU|MV|MX|MY|NA|NC|NG|...[truncated]",
+              "type": "string"
+            }
+          },
+          {
+            "key": "account_currency",
+            "path": "beneficiary.bank_details.account_currency",
+            "required": true,
+            "rule": {
+              "pattern": "AED|ALL|AMD|AOA|ARS|AUD|AZN|BAM|BBD|BDT|BHD|BOB|BRL|BSD|BWP|BZD|CAD|CHF|CLP|CNY|COP|CRC|CZK|DKK|DOP|DZD|EGP|EUR|FJD|GBP|GEL|GHS|GMD|GTQ|GYD|HKD|HNL|HUF|IDR|ILS|INR|ISK|JMD|JOD|JPY|KES|KGS|KRW|KWD|KZT|LKR|LSL|MAD|MGA|MUR|MWK|MXN|MYR|NAD|NGN|NIO|NOK|NPR|NZD|OMR|PEN|PHP|PKR|PLN|PYG|QAR|RON|RSD|RWF|SAR|...[truncated]",
+              "type": "string"
+            }
+          },
+          {
+            "key": "transfer_method",
+            "path": "transfer_methods",
+            "required": true,
+            "rule": {
+              "pattern": "",
+              "type": "string"
+            }
+          }
+        ],
+        "key": "newRecipient"
+      },
+      "version_headers": {}
+    },
+    {
+      "elapsed_ms": 2031,
+      "http_status": 200,
+      "id": "P4b",
+      "method": "GET",
+      "name": "current rate",
+      "note": "",
+      "ok": true,
+      "path": "/api/v1/fx/rates/current?sell_currency=USD&buy_currency=GBP&buy_amount=1.00",
+      "request": null,
+      "response": {
+        "buy_currency": "GBP",
+        "conversion_date": "2026-11-05",
+        "created_at": "2026-11-05T16:09:47+0000",
+        "currency_pair": "GBPUSD",
+        "dealt_currency": "GBP",
+        "rate": "1.353656",
+        "rate_details": [
+          {
+            "buy_amount": "1.00",
+            "level": "AWX",
+            "rate": "1.346921",
+            "sell_amount": "1.35"
+          },
+          {
+            "buy_amount": "1.00",
+            "level": "CLIENT",
+            "rate": "1.353656",
+            "sell_amount": "1.35"
+          }
+        ],
+        "sell_currency": "USD"
+      },
+      "version_headers": {}
+    },
+    {
+      "elapsed_ms": 4281,
+      "http_status": 200,
+      "id": "P5",
+      "method": "POST",
+      "name": "create quote (MIN_1, buy_amount only)",
+      "note": "no request_id sent: the quotes reference lists none",
+      "ok": true,
+      "path": "/api/v1/fx/quotes/create",
+      "request": {
+        "buy_amount": "1.00",
+        "buy_currency": "GBP",
+        "sell_currency": "USD",
+        "validity": "MIN_1"
+      },
+      "response": {
+        "awx_rate": "1.346921",
+        "buy_amount": "1.00",
+        "buy_currency": "GBP",
+        "client_rate": "1.353656",
+        "conversion_date": "2026-11-05",
+        "currency_pair": "GBPUSD",
+        "dealt_currency": "GBP",
+        "mid_rate": "1.34669",
+        "quote_id": "8a6f19fe-20f9-3099-871b-d8c301e10845",
+        "rate_details": [
+          {
+            "buy_amount": "1.00",
+            "level": "AWX",
+            "rate": "1.346921",
+            "sell_amount": "1.35"
+          },
+          {
+            "buy_amount": "1.00",
+            "level": "CLIENT",
+            "rate": "1.353656",
+            "sell_amount": "1.35"
+          }
+        ],
+        "sell_amount": "1.35",
+        "sell_currency": "USD",
+        "usage": "MULTI_USE",
+        "valid_from_at": "2026-11-05T16:09:50+0000",
+        "valid_to_at": "2026-11-05T16:10:50+0000",
+        "validity": "MIN_1"
+      },
+      "version_headers": {}
+    },
+    {
+      "elapsed_ms": 1780,
+      "http_status": 200,
+      "id": "P6",
+      "method": "GET",
+      "name": "retrieve quote",
+      "note": "",
+      "ok": true,
+      "path": "/api/v1/fx/quotes/8a6f19fe-20f9-3099-871b-d8c301e10845",
+      "request": null,
+      "response": {
+        "awx_rate": "1.346921",
+        "buy_amount": "1.00",
+        "buy_currency": "GBP",
+        "client_rate": "1.353656",
+        "conversion_date": "2026-11-05",
+        "currency_pair": "GBPUSD",
+        "dealt_currency": "GBP",
+        "mid_rate": "1.34669",
+        "quote_id": "8a6f19fe-20f9-3099-871b-d8c301e10845",
+        "rate_details": [
+          {
+            "buy_amount": "1.00",
+            "level": "AWX",
+            "rate": "1.346921",
+            "sell_amount": "1.35"
+          },
+          {
+            "buy_amount": "1.00",
+            "level": "CLIENT",
+            "rate": "1.353656",
+            "sell_amount": "1.35"
+          }
+        ],
+        "sell_amount": "1.35",
+        "sell_currency": "USD",
+        "usage": "MULTI_USE",
+        "valid_from_at": "2026-11-05T16:09:50+0000",
+        "valid_to_at": "2026-11-05T16:10:50+0000",
+        "validity": "MIN_1"
+      },
+      "version_headers": {}
+    },
+    {
+      "elapsed_ms": 1358,
+      "http_status": 400,
+      "id": "P10",
+      "method": "POST",
+      "name": "transfers/validate (shape discovery, no payout)",
+      "note": "an error naming required fields is useful; dashboard shows if payouts need a native approval",
+      "ok": true,
+      "path": "/api/v1/transfers/validate",
+      "request": {
+        "beneficiary_id": "probe-synthetic",
+        "reason": "sandbox probe",
+        "reference": "probe",
+        "request_id": "d63f5b11-e939-4af1-92bf-cc1331591a4c",
+        "source_currency": "GBP",
+        "transfer_amount": "1.00",
+        "transfer_currency": "GBP",
+        "transfer_method": "LOCAL"
+      },
+      "response": {
+        "code": "validation_failed",
+        "details": {
+          "errors": [
+            {
+              "code": "045",
+              "source": "beneficiary_id"
+            }
+          ]
+        },
+        "message": "The request failed our schema validation. Refer to the errors object for erroneous fields, codes and parameters."
+      },
+      "version_headers": {}
+    }
+  ],
+  "tool": "sandbox_probe",
+  "version": "2"
+}

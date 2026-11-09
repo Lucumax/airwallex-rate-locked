@@ -1,0 +1,102 @@
+[
+ {
+  "screen": "01-invoices",
+  "theme": "dark",
+  "texts": 66,
+  "min_text": 5.98,
+  "chips": 6,
+  "min_chip": 6.56,
+  "fails": 0,
+  "worst_text": [
+   "5.98 \"INV-3307\"",
+   "6.56 \"3 invoices\"",
+   "6.56 \"INV-1001\""
+  ],
+  "worst_chip": [
+   "6.56 \"Test money\"",
+   "7.96 \"✓ READY\"",
+   "7.96 \"✓ READY\""
+  ],
+  "failing": []
+ },
+ {
+  "screen": "04-plan",
+  "theme": "dark",
+  "texts": 74,
+  "min_text": 5.94,
+  "chips": 5,
+  "min_chip": 5.94,
+  "fails": 0,
+  "worst_text": [
+   "5.94 \"✦\"",
+   "5.94 \"Agent recommendation\"",
+   "6.56 \"EUR\""
+  ],
+  "worst_chip": [
+   "5.94 \"⇄ CONVERT\"",
+   "6.56 \"Test money\"",
+   "7.96 \"✓ FUND\""
+  ],
+  "failing": []
+ },
+ {
+  "screen": "08-approver-phone-live",
+  "theme": "dark",
+  "texts": 23,
+  "min_text": 6.56,
+  "chips": 4,
+  "min_chip": 6.56,
+  "fails": 0,
+  "worst_text": [
+   "6.56 \"You pay\"",
+   "6.56 \"↓\"",
+   "6.56 \"Supplier gets\""
+  ],
+  "worst_chip": [
+   "6.56 \"Test money\"",
+   "7.96 \"LOCKED\"",
+   "7.96 \"Open for approval\""
+  ],
+  "failing": []
+ },
+ {
+  "screen": "11-stale-refused",
+  "theme": "dark",
+  "texts": 83,
+  "min_text": 6.56,
+  "chips": 6,
+  "min_chip": 6.56,
+  "fails": 0,
+  "worst_text": [
+   "6.56 \"Same recipient. Same GBP amount. Amount \"",
+   "6.56 \"GBP 1,000.00\"",
+   "6.56 \"USD per GBP\""
+  ],
+  "worst_chip": [
+   "6.56 \"Test money\"",
+   "6.56 \"RUN: LIVE r-03f5b1ff aec8041\"",
+   "7.23 \"REFUSED\""
+  ],
+  "failing": []
+ },
+ {
+  "screen": "12-stale-new-quote",
+  "theme": "dark",
+  "texts": 89,
+  "min_text": 5.89,
+  "chips": 7,
+  "min_chip": 5.94,
+  "fails": 0,
+  "worst_text": [
+   "5.89 \"USD per GBP\"",
+   "5.89 \"Expires 14:00:41 UTC\"",
+   "5.89 \"4bfb78dc-d51c-3e7a-ae7b-02e4b9d03fe9\""
+  ],
+  "worst_chip": [
+   "5.94 \"Locked\"",
+   "6.56 \"Test money\"",
+   "6.56 \"RUN: LIVE r-03f5b1ff aec8041\""
+  ],
+  "failing": []
+ }
+]

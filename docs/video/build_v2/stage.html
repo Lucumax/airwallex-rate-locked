@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Rate-Locked sandbox v2 stage</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--ink:#101820;--mute:#5b6675;--line:#d4d9e1;--accent:#5b33ff;--accent-bg:#ece8ff;--amber:#92400e;--amber-bg:#fef3c7;--red:#b42318;--red-bg:#fde8e8;--green:#166534;--green-bg:#e3f6e8;--dark:#0e1319}
+*{box-sizing:border-box}
+html,body{margin:0;overflow:hidden;background:var(--bg);font-family:"Segoe UI",system-ui,Arial,sans-serif;color:var(--ink)}
+#root{position:relative;width:1920px;height:960px}
+.card{position:absolute;background:var(--card);border:2px solid var(--line);border-radius:22px;box-shadow:0 6px 24px rgba(16,24,32,.08)}
+.t{position:absolute;white-space:nowrap}
+.pill{position:absolute;border-radius:999px;padding:8px 24px;font-size:30px;font-weight:600;white-space:nowrap}
+svg{position:absolute;left:0;top:0;overflow:visible}
+</style></head>
+<body><div id="root"></div>
+<script>
+const R=document.getElementById('root');
+const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const ease=x=>{x=clamp(x);return x*x*(3-2*x)};
+const seg=(t,a,b)=>ease((t-a)/(b-a));
+function put(id,html){R.insertAdjacentHTML('beforeend',html.replace('<div ','<div id="'+id+'" '))}
+function $(id){return document.getElementById(id)}
+function show(id,p,dy=22){const e=$(id);if(!e)return;e.style.opacity=p;e.style.transform=`translateY(${(1-p)*dy}px)`}
+function T(id,x,y,size,txt,extra=''){put(id,`<div class="t" style="left:${x}px;top:${y}px;font-size:${size}px;${extra}">${txt}</div>`)}
+function C(id,x,y,w,h,extra=''){put(id,`<div class="card" style="left:${x}px;top:${y}px;width:${w}px;height:${h}px;${extra}"></div>`)}
+function P(id,x,y,txt,css){put(id,`<div class="pill" style="left:${x}px;top:${y}px;${css}">${txt}</div>`)}
+let built=null;
+
+/* ---------------- d1: hook, no numbers ---------------- */
+function rate(x){ /* a made-up wandering line, no values on it */
+  return 0.5+0.22*Math.sin(x*6.1)+0.14*Math.sin(x*13.7+1.2)+0.06*Math.sin(x*31+0.4);
+}
+function build_d1(){
+  R.innerHTML='';
+  T('h',0,38,64,'Rate-Locked Approval','width:1920px;text-align:center;font-weight:700;letter-spacing:.5px');
+  // left: the business
+  C('a',90,170,560,420);
+  T('a0',130,196,28,'A SMALL BUSINESS','color:#5b6675;font-weight:700;letter-spacing:2px');
+  T('a1',130,250,44,'Holds <b>dollars</b>','');
+  P('a2',130,330,'USD','background:#ece8ff;color:#5b33ff;border:2px solid #5b33ff;font-size:36px');
+  T('a3',130,420,34,'Owes suppliers in<br><b>euros</b> and <b>pounds</b>','line-height:48px');
+  P('a4',130,520,'EUR','background:#e3f6e8;color:#166534;border:2px solid #166534;font-size:30px;padding:6px 20px');
+  P('a5',250,520,'GBP','background:#e3f6e8;color:#166534;border:2px solid #166534;font-size:30px;padding:6px 20px');
+  // middle: the rate wanders
+  C('m',700,170,620,420,'border-style:dashed');
+  T('m0',740,196,28,'THE EXCHANGE RATE KEEPS MOVING','color:#5b6675;font-weight:700;letter-spacing:1px');
+  put('chart',`<div style="position:absolute;left:0;top:0;width:1920px;height:960px"><svg width="1920" height="960"><path id="rpath" d="" fill="none" stroke="#101820" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle id="rdot" r="13" fill="#b42318" cx="-50" cy="-50"/></svg></div>`);
+  // right: the approval waits
+  C('b',1370,170,460,420,'border-color:#92400e');
+  T('b0',1410,196,28,'AN APPROVAL IS WAITING','color:#92400e;font-weight:700;letter-spacing:1px');
+  T('b1',1410,256,38,'Pay the supplier<br>at <b>the rate you saw</b>','line-height:52px');
+  P('b2',1410,400,'Waiting in an inbox','background:#fef3c7;color:#92400e;border:2px solid #92400e;font-size:30px');
+  put('clk',`<div style="position:absolute;left:0;top:0;width:1920px;height:960px"><svg width="1920" height="960"><circle cx="1600" cy="520" r="34" fill="none" stroke="#92400e" stroke-width="5"/><path id="hand" d="" stroke="#92400e" stroke-width="5" stroke-linecap="round"/></svg></div>`);
+  T('fn',0,880,26,'Illustration only. No real data, no real rates.','width:1920px;text-align:center;color:#5b6675');
+  // the time-cut card: REWIND
+  put('rw',`<div style="position:absolute;left:0;top:0;width:1920px;height:960px;background:#101820;z-index:5"><svg width="1920" height="960"><circle cx="960" cy="330" r="90" fill="none" stroke="#fff" stroke-width="8"/><path id="rwhand" d="" stroke="#fff" stroke-width="8" stroke-linecap="round"/></svg></div>`);
+  T('rw1',0,470,150,'&#9664;&#9664; REWIND','width:1920px;text-align:center;font-weight:700;color:#fff;z-index:6;letter-spacing:4px');
+}
+function render_d1(t,L){
+  const rw=1-seg(t,L[0]+.6,L[0]+.95);
+  show('rw',rw,0);show('rw1',rw,0);
+  $('rw').style.display=rw<=0.001?'none':'block';
+  const ang=-2*Math.PI*clamp(t/(L[0]+.9))*1.6;
+  $('rwhand').setAttribute('d',`M960,330 L${(960+62*Math.sin(ang)).toFixed(1)},${(330-62*Math.cos(ang)).toFixed(1)}`);
+  show('h',seg(t,L[0]+.6,L[0]+1.0),10);
+  show('a',seg(t,L[0]+.8,L[0]+1.4));['a0','a1','a2'].forEach((k,i)=>show(k,seg(t,L[0]+.9+i*.3,L[0]+1.4+i*.3)));
+  ['a3','a4','a5'].forEach((k,i)=>show(k,seg(t,L[0]+2.5+i*.35,L[0]+3.0+i*.35)));
+  show('fn',seg(t,L[0]+1,L[0]+2),0);
+  const sx=740,ex=1280,base=400,amp=170,w=ex-sx;
+  const p=seg(t,L[1]-.1,L[1]+2.2);
+  show('m',seg(t,L[1]-.4,L[1]+.1));show('m0',seg(t,L[1]-.4,L[1]+.1));show('chart',seg(t,L[1]-.3,L[1]+.1),0);
+  let d='';const n=80;let lx=sx,ly=0;
+  for(let i=0;i<=Math.round(n*p);i++){const x=i/n;lx=sx+w*x;ly=base-(rate(x)-.5)*2*amp;d+=(i?'L':'M')+lx.toFixed(1)+','+ly.toFixed(1)}
+  $('rpath').setAttribute('d',d);$('rdot').setAttribute('cx',lx);$('rdot').setAttribute('cy',ly);
+  show('b',seg(t,L[1]+.1,L[1]+.6));['b0','b1','b2'].forEach((k,i)=>show(k,seg(t,L[1]+.2+i*.3,L[1]+.7+i*.3)));
+  show('clk',seg(t,L[1]+.7,L[1]+1.2),0);
+  const a=2*Math.PI*clamp((t-(L[1]+.7))/2.2)*2.2;
+  $('hand').setAttribute('d',`M1600,520 L${(1600+26*Math.sin(a)).toFixed(1)},${(520-26*Math.cos(a)).toFixed(1)}`);
+}
+
+/* ---------------- d3: close ---------------- */
+function build_d3(){
+  R.innerHTML='';
+  T('h',0,36,80,'Rate-Locked Approval','width:1920px;text-align:center;font-weight:700');
+  T('hs',0,132,34,'An agent that may only spend at the rate a person approved.','width:1920px;text-align:center;color:#5b6675');
+  C('s',90,200,860,430,'border-color:#166534');
+  T('s0',130,224,30,'WHAT YOU SAW, LIVE ON THE SANDBOX','color:#166534;font-weight:700;letter-spacing:1px');
+  T('s1',130,282,30,'&#10003; A Claude model reading three fictional invoices<br>&#10003; A change recomputes only the decisions it touches<br>&#10003; A real quote that expired: approval refused,<br>&nbsp;&nbsp;&nbsp;&nbsp;0 execution API calls<br>&#10003; A new quote, approved and executed once<br>&#10003; Conversion SETTLED, transfer SCHEDULED, then PAID<br>&nbsp;&nbsp;&nbsp;&nbsp;(PAID moved by the sandbox simulator)<br>&#10003; Approved vs executed, and Verify offline','line-height:41px');
+  C('n',990,200,840,430,'border-color:#5b33ff');
+  T('n0',1030,224,30,'BUILT ON AIRWALLEX SANDBOX APIS','color:#5b33ff;font-weight:700;letter-spacing:1px');
+  T('n1',1030,282,38,'Balances &middot; FX rates &middot; Quotes<br>Conversions &middot; Beneficiaries &middot; Transfers','line-height:58px;font-weight:600');
+  T('n2',1030,420,26,'Test money, fictional suppliers. Balances are a demo<br>allocation inside the sandbox wallet. The app consumes<br>each approved quote once; the sandbox itself reports<br>quotes as multi-use. The approver&#39;s taps in this<br>recording are made by a script, not a person.','line-height:38px;color:#5b6675');
+  put('repo',`<div style="position:absolute;left:90px;top:670px;width:1740px;height:92px;background:#101820;border-radius:20px"></div>`);
+  T('r1',0,684,46,'github.com/Lucumax/airwallex-rate-locked &nbsp;&middot;&nbsp; MIT licence','width:1920px;text-align:center;font-weight:700;color:#fff');
+  T('f2',0,792,30,'Built with LLM-assisted development I specified, directed and reviewed.','width:1920px;text-align:center');
+  T('f3',0,842,27,'Independent sandbox project. Not affiliated with or endorsed by Airwallex. Synthetic narration (Kokoro, af_heart).','width:1920px;text-align:center;color:#5b6675');
+}
+function render_d3(t,L){
+  show('h',seg(t,.1,.7));show('hs',seg(t,.3,.9),10);
+  ['s','s0','s1'].forEach(k=>show(k,seg(t,L[0]+.1,L[0]+.8)));['n','n0','n1','n2'].forEach(k=>show(k,seg(t,L[0]+3.0,L[0]+3.7)));
+  ['repo','r1'].forEach(k=>show(k,seg(t,L[0]+5.8,L[0]+6.5),0));['f2','f3'].forEach((k,i)=>show(k,seg(t,L[0]+6.4+i*.4,L[0]+7.1+i*.4),10));
+}
+
+const SCENES={d1:[build_d1,render_d1],d3:[build_d3,render_d3]};
+function render(id,t,L){ if(built!==id){SCENES[id][0]();built=id} SCENES[id][1](t,L) }
+window.ready=true;
+</script></body></html>

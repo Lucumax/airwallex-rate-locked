@@ -1,0 +1,42 @@
+Rate-Locked Approval, sandbox cut v2.4. Voice: Kokoro af_heart (synthetic), third person. Scenes c0, u1 to u5 are the real console against the Airwallex sandbox (test money); d1 and d3 are labelled diagram cards.
+
+
+[c0] Cold open: the refused screen
+This approval came 4 seconds late. So nothing was sent.
+
+[d1] Rewind: the problem
+Rewind. A small business holds dollars, and owes suppliers in euros and pounds.
+Rates keep moving while an approval waits.
+
+[u1] Invoices in: a model reads, code checks
+This is Rate-Locked Approval, on Airwallex's sandbox, with test money. A Claude model reads three invoices.
+Two come through clean. The third has a due time with no time zone, so the agent stops, and asks a person.
+Separately, five hostile invoices were thrown at it. Zero wrong values. All five were held.
+
+[u2] Plan: balances, live rate, fund / convert / defer
+Next, the plan. Code does this part, not the model.
+The plan funds Acme from euros. Globex needs pounds, so dollars get converted. Initech waits for money that's coming in.
+
+[u2b] Recalculate only what changed
+Now the money Initech is waiting for looks less certain. Only the decisions that depend on it are recomputed.
+Acme is not touched. Globex is checked again, and stays the same. Initech now goes to a person.
+
+[u3] Locked quote on the approver page
+Here's the key idea. The agent may only spend at the rate a person approved.
+For Globex, it asks Airwallex for a quote: a rate with an end time. That opens a separate approver page, sized for a phone.
+They see what they pay, what the supplier gets, the locked rate, and a countdown.
+Approve in time, and the agent may use exactly this quote. Nothing else.
+
+[u4] The twist: approval after expiry is refused
+The approver gets pulled into a meeting, and the clock runs out.
+The tap on Approve comes too late. The app refuses. Nothing was converted, nothing was paid. The log shows zero execution calls.
+So the agent asks for a fresh quote, and shows what changed. Eleven cents less this time. Either way, it won't convert without a quote a person approved.
+The approver says yes to the new quote, and it goes through.
+
+[u5] Record: approved vs executed, then Verify
+Now the record. Approved on the left, executed on the right, row by row. Twelve of twelve match.
+Those are real Airwallex sandbox IDs. The transfer went from scheduled to paid, using the sandbox simulator.
+Anyone can verify an exported copy, offline. It passes. Edit one number in the copy, and it fails, and names the row.
+
+[d3] Close
+Built on Airwallex's sandbox APIs: balances, rates, quotes, conversions, beneficiaries, transfers. The code is MIT licensed, and the repository is linked with this entry.

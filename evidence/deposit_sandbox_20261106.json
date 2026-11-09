@@ -1,0 +1,48 @@
+{
+ "what": "One test deposit (USD 1,000) on the Airwallex sandbox world, test money, 2026-11-06",
+ "world_chip": "WORLD: AIRWALLEX SANDBOX",
+ "before": {
+  "title": "Proposed actions (Plan v1: baseline)",
+  "balances": [
+   "EUR1,500.00Available",
+   "GBP0.00Available",
+   "USD3,000.00Available"
+  ],
+  "decisions": [
+   "O1 Acme Co.INV-1001Nov 3, 05:00 UTCEUR 1,200.00\u2713 FUND The EUR balance covers EUR 1,200.00.A person approves the paymentRequest approval",
+   "O2 Globex Ltd.INV-2040Nov 3, 15:00 UTCGBP 1,000.00\u21c4 CONVERT GBP 1,000.00 short. Buy GBP at a locked quote, estimated USD 1,350.95 including a 0.5% buffer.A person approve",
+   "O3 Initech Pte. Ltd.INV-3307Nov 4, 21:00 UTCEUR 2,000.00\u25f7 DEFER EUR 1,700.00 short. Vandelay Industries is expected to pay EUR 1,800.00 on 2026-11-04 01:00 UTC (high conf"
+  ],
+  "reserve": ""
+ },
+ "button_disabled": false,
+ "plan_v2_after_deposit": true,
+ "seconds_to_answer": 9.7,
+ "after": {
+  "title": "Proposed actions (Plan v2: deposit simulated)",
+  "balances": [
+   "EUR1,500.00Available",
+   "GBP0.00Available",
+   "USD4,000.00Available"
+  ],
+  "decisions": [
+   "O1 Acme Co.INV-1001Nov 3, 05:00 UTCEUR 1,200.00\u2713 FUND Not recomputed (its inputs did not change)The EUR balance covers EUR 1,200.00.A person approves the paymentRequest a",
+   "O2 Globex Ltd.INV-2040Nov 3, 15:00 UTCGBP 1,000.00\u21c4 CONVERT Recomputed, same resultGBP 1,000.00 short. Buy GBP at a locked quote, estimated USD 1,350.95 including a 0.5% ",
+   "O3 Initech Pte. Ltd.INV-3307Nov 4, 21:00 UTCEUR 2,000.00\u21c4 CONVERT RecomputedEUR 1,700.00 short. Buy EUR at a locked quote, estimated USD 1,914.86 including a 0.5% buffer."
+  ],
+  "reserve": ""
+ },
+ "error_banner": "",
+ "posts": [
+  [
+   "POST",
+   "review/resolve",
+   200
+  ],
+  [
+   "POST",
+   "deposit",
+   200
+  ]
+ ]
+}

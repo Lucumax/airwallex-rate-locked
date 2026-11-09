@@ -1,0 +1,535 @@
+[
+ {
+  "screen": "01-invoices-review-needed",
+  "theme": "dark",
+  "texts": 66,
+  "min_text": 5.98,
+  "chips": 6,
+  "min_chip": 6.56,
+  "fails": 0,
+  "worst_text": [
+   "5.98 \"INV-3307\"",
+   "6.56 \"3 invoices\"",
+   "6.56 \"INV-1001\""
+  ],
+  "worst_chip": [
+   "6.56 \"Test money\"",
+   "7.96 \"✓ READY\"",
+   "7.96 \"✓ READY\""
+  ],
+  "failing": []
+ },
+ {
+  "screen": "02-review-form-filled",
+  "theme": "dark",
+  "texts": 66,
+  "min_text": 5.98,
+  "chips": 6,
+  "min_chip": 6.56,
+  "fails": 0,
+  "worst_text": [
+   "5.98 \"INV-3307\"",
+   "6.56 \"3 invoices\"",
+   "6.56 \"INV-1001\""
+  ],
+  "worst_chip": [
+   "6.56 \"Test money\"",
+   "7.96 \"✓ READY\"",
+   "7.96 \"✓ READY\""
+  ],
+  "failing": []
+ },
+ {
+  "screen": "03-review-resolved",
+  "theme": "dark",
+  "texts": 99,
+  "min_text": 5.98,
+  "chips": 10,
+  "min_chip": 6.56,
+  "fails": 0,
+  "worst_text": [
+   "5.98 \"INV-3307\"",
+   "5.98 \"Confirmed by a person\"",
+   "6.03 \"Go there\""
+  ],
+  "worst_chip": [
+   "6.56 \"Test money\"",
+   "6.56 \"RUN: LIVE r-0991fa28 8f72679-dirty\"",
+   "6.61 \"HUMAN\""
+  ],
+  "failing": []
+ },
+ {
+  "screen": "04-plan-v1",
+  "theme": "dark",
+  "texts": 75,
+  "min_text": 5.94,
+  "chips": 5,
+  "min_chip": 5.94,
+  "fails": 0,
+  "worst_text": [
+   "5.94 \"✦\"",
+   "5.94 \"Agent recommendation\"",
+   "6.56 \"EUR\""
+  ],
+  "worst_chip": [
+   "5.94 \"⇄ CONVERT\"",
+   "6.56 \"Test money\"",
+   "7.96 \"✓ FUND\""
+  ],
+  "failing": []
+ },
+ {
+  "screen": "05-plan-v2-confidence-lowered",
+  "theme": "dark",
+  "texts": 82,
+  "min_text": 5.94,
+  "chips": 5,
+  "min_chip": 5.94,
+  "fails": 0,
+  "worst_text": [
+   "5.94 \"✦\"",
+   "5.94 \"Agent recommendation\"",
+   "6.56 \"EUR\""
+  ],
+  "worst_chip": [
+   "5.94 \"⇄ CONVERT\"",
+   "6.56 \"Test money\"",
+   "7.23 \"▲ ESCALATE\""
+  ],
+  "failing": []
+ },
+ {
+  "screen": "06-plan-v3-deposit-simulated",
+  "theme": "dark",
+  "texts": 84,
+  "min_text": 5.94,
+  "chips": 5,
+  "min_chip": 5.94,
+  "fails": 0,
+  "worst_text": [
+   "5.94 \"✦\"",
+   "5.94 \"Agent recommendation\"",
+   "6.56 \"EUR\""
+  ],
+  "worst_chip": [
+   "5.94 \"⇄ CONVERT\"",
+   "5.94 \"⇄ CONVERT\"",
+   "6.56 \"Test money\""
+  ],
+  "failing": []
+ },
+ {
+  "screen": "07-approval-locked-quote",
+  "theme": "dark",
+  "texts": 66,
+  "min_text": 6.56,
+  "chips": 4,
+  "min_chip": 6.56,
+  "fails": 0,
+  "worst_text": [
+   "6.56 \"The approval closes 10 s before the quot\"",
+   "6.56 \"Quote ID, digest and request IDs\"",
+   "6.56 \"Quote ID\""
+  ],
+  "worst_chip": [
+   "6.56 \"Test money\"",
+   "7.96 \"LOCKED\"",
+   "8.83 \"Awaiting approval\""
+  ],
+  "failing": []
+ },
+ {
+  "screen": "08-approver-phone-live",
+  "theme": "dark",
+  "texts": 23,
+  "min_text": 6.56,
+  "chips": 4,
+  "min_chip": 6.56,
+  "fails": 0,
+  "worst_text": [
+   "6.56 \"You pay\"",
+   "6.56 \"↓\"",
+   "6.56 \"Supplier gets\""
+  ],
+  "worst_chip": [
+   "6.56 \"Test money\"",
+   "7.96 \"LOCKED\"",
+   "7.96 \"Open for approval\""
+  ],
+  "failing": []
+ },
+ {
+  "screen": "09-approver-phone-expired",
+  "theme": "dark",
+  "texts": 23,
+  "min_text": 6.56,
+  "chips": 4,
+  "min_chip": 6.56,
+  "fails": 0,
+  "worst_text": [
+   "6.56 \"You pay\"",
+   "6.56 \"↓\"",
+   "6.56 \"Supplier gets\""
+  ],
+  "worst_chip": [
+   "6.56 \"Test money\"",
+   "7.23 \"EXPIRED\"",
+   "7.23 \"Expired\""
+  ],
+  "failing": []
+ },
+ {
+  "screen": "10-approver-phone-refused",
+  "theme": "dark",
+  "texts": 22,
+  "min_text": 6.56,
+  "chips": 4,
+  "min_chip": 6.56,
+  "fails": 0,
+  "worst_text": [
+   "6.56 \"You pay\"",
+   "6.56 \"↓\"",
+   "6.56 \"Supplier gets\""
+  ],
+  "worst_chip": [
+   "6.56 \"Test money\"",
+   "7.23 \"EXPIRED\"",
+   "7.23 \"Expired\""
+  ],
+  "failing": []
+ },
+ {
+  "screen": "11-stale-refused",
+  "theme": "dark",
+  "texts": 76,
+  "min_text": 6.56,
+  "chips": 5,
+  "min_chip": 6.56,
+  "fails": 0,
+  "worst_text": [
+   "6.56 \"Same recipient. Same GBP amount. Amount \"",
+   "6.56 \"GBP 1,000.00\"",
+   "6.56 \"USD per GBP\""
+  ],
+  "worst_chip": [
+   "6.56 \"Test money\"",
+   "7.23 \"REFUSED\"",
+   "7.23 \"Expired\""
+  ],
+  "failing": []
+ },
+ {
+  "screen": "12-stale-new-quote-cost-difference",
+  "theme": "dark",
+  "texts": 89,
+  "min_text": 5.89,
+  "chips": 7,
+  "min_chip": 5.94,
+  "fails": 0,
+  "worst_text": [
+   "5.89 \"USD per GBP\"",
+   "5.89 \"Expires 09:02:12 UTC\"",
+   "5.89 \"qte_0006\""
+  ],
+  "worst_chip": [
+   "5.94 \"Locked\"",
+   "6.56 \"Test money\"",
+   "6.56 \"RUN: LIVE r-0991fa28 8f72679-dirty\""
+  ],
+  "failing": []
+ },
+ {
+  "screen": "13-approver-phone-new-terms",
+  "theme": "dark",
+  "texts": 23,
+  "min_text": 6.56,
+  "chips": 4,
+  "min_chip": 6.56,
+  "fails": 0,
+  "worst_text": [
+   "6.56 \"You pay\"",
+   "6.56 \"↓\"",
+   "6.56 \"Supplier gets\""
+  ],
+  "worst_chip": [
+   "6.56 \"Test money\"",
+   "7.96 \"LOCKED\"",
+   "7.96 \"Open for approval\""
+  ],
+  "failing": []
+ },
+ {
+  "screen": "14-approver-phone-approved",
+  "theme": "dark",
+  "texts": 22,
+  "min_text": 6.56,
+  "chips": 4,
+  "min_chip": 6.56,
+  "fails": 0,
+  "worst_text": [
+   "6.56 \"You pay\"",
+   "6.56 \"↓\"",
+   "6.56 \"Supplier gets\""
+  ],
+  "worst_chip": [
+   "6.56 \"Test money\"",
+   "7.96 \"LOCKED\"",
+   "7.96 \"Approval recorded\""
+  ],
+  "failing": []
+ },
+ {
+  "screen": "15-record-approved-vs-executed",
+  "theme": "dark",
+  "texts": 77,
+  "min_text": 5.56,
+  "chips": 6,
+  "min_chip": 5.94,
+  "fails": 0,
+  "worst_text": [
+   "5.56 \"Digest and rows verify. An exported copy\"",
+   "6.56 \"Globex Ltd. · Invoice INV-2040\"",
+   "6.56 \"ben_0002\""
+  ],
+  "worst_chip": [
+   "5.94 \"PROCESSING\"",
+   "6.56 \"Test money\"",
+   "7.96 \"✓ VERIFIED\""
+  ],
+  "failing": []
+ },
+ {
+  "screen": "16-lookup-not-sure-yet",
+  "theme": "dark",
+  "texts": 36,
+  "min_text": 6.56,
+  "chips": 2,
+  "min_chip": 6.56,
+  "fails": 0,
+  "worst_text": [
+   "6.56 \"Found by request ID\"",
+   "6.56 \"Each use is logged in this run. These co\"",
+   "6.56 \"Export the record, edit anything you lik\""
+  ],
+  "worst_chip": [
+   "6.56 \"Test money\"",
+   "10.02 \"WORLD: FAKE\""
+  ],
+  "failing": []
+ },
+ {
+  "screen": "17-lookup-found",
+  "theme": "dark",
+  "texts": 35,
+  "min_text": 6.56,
+  "chips": 2,
+  "min_chip": 6.56,
+  "fails": 0,
+  "worst_text": [
+   "6.56 \"Each use is logged in this run. These co\"",
+   "6.56 \"Export the record, edit anything you lik\"",
+   "6.56 \"python -m rate_locked verify bundle.json\""
+  ],
+  "worst_chip": [
+   "6.56 \"Test money\"",
+   "10.02 \"WORLD: FAKE\""
+  ],
+  "failing": []
+ },
+ {
+  "screen": "18-verify-pass-then-fail",
+  "theme": "dark",
+  "texts": 37,
+  "min_text": 6.56,
+  "chips": 2,
+  "min_chip": 6.56,
+  "fails": 0,
+  "worst_text": [
+   "6.56 \"Each use is logged in this run. These co\"",
+   "6.56 \"Export the record, edit anything you lik\"",
+   "6.56 \"python -m rate_locked verify bundle.json\""
+  ],
+  "worst_chip": [
+   "6.56 \"Test money\"",
+   "10.02 \"WORLD: FAKE\""
+  ],
+  "failing": []
+ },
+ {
+  "screen": "20-approval-15-minute-validity",
+  "theme": "dark",
+  "texts": 71,
+  "min_text": 6.56,
+  "chips": 5,
+  "min_chip": 5.94,
+  "fails": 0,
+  "worst_text": [
+   "6.56 \"The approval closes 10 s before the quot\"",
+   "6.56 \"Quote ID, digest and request IDs\"",
+   "6.56 \"Quote ID\""
+  ],
+  "worst_chip": [
+   "5.94 \"Payout reported\"",
+   "6.56 \"Test money\"",
+   "7.96 \"LOCKED\""
+  ],
+  "failing": []
+ },
+ {
+  "screen": "21-record-late-failure-after-paid",
+  "theme": "dark",
+  "texts": 81,
+  "min_text": 5.78,
+  "chips": 4,
+  "min_chip": 5.94,
+  "fails": 0,
+  "worst_text": [
+   "5.78 \"Approved terms match. The payout failed \"",
+   "6.56 \"Globex Ltd. · Invoice INV-2040\"",
+   "6.56 \"ben_0002\""
+  ],
+  "worst_chip": [
+   "5.94 \"PROCESSING\"",
+   "6.56 \"Test money\"",
+   "7.23 \"FAILED\""
+  ],
+  "failing": []
+ },
+ {
+  "screen": "phone-invoices",
+  "theme": "dark",
+  "texts": 38,
+  "min_text": 5.98,
+  "chips": 6,
+  "min_chip": 6.56,
+  "fails": 0,
+  "worst_text": [
+   "5.98 \"INV-3307\"",
+   "5.98 \"Confirmed by a person\"",
+   "6.56 \"3 invoices\""
+  ],
+  "worst_chip": [
+   "6.56 \"Test money\"",
+   "7.96 \"✓ READY\"",
+   "7.96 \"✓ READY\""
+  ],
+  "failing": []
+ },
+ {
+  "screen": "phone-plan",
+  "theme": "dark",
+  "texts": 29,
+  "min_text": 5.94,
+  "chips": 2,
+  "min_chip": 6.56,
+  "fails": 0,
+  "worst_text": [
+   "5.94 \"✦\"",
+   "5.94 \"Agent recommendation\"",
+   "6.56 \"EUR\""
+  ],
+  "worst_chip": [
+   "6.56 \"Test money\"",
+   "10.02 \"WORLD: FAKE\""
+  ],
+  "failing": []
+ },
+ {
+  "screen": "phone-approval",
+  "theme": "dark",
+  "texts": 31,
+  "min_text": 7.13,
+  "chips": 4,
+  "min_chip": 6.56,
+  "fails": 0,
+  "worst_text": [
+   "7.13 \"One exact set of terms goes to a separat\"",
+   "7.13 \"Server clock (scenario time,\"",
+   "7.13 \"FAKE\""
+  ],
+  "worst_chip": [
+   "6.56 \"Test money\"",
+   "7.96 \"LOCKED\"",
+   "8.83 \"Awaiting approval\""
+  ],
+  "failing": []
+ },
+ {
+  "screen": "phone-stale",
+  "theme": "dark",
+  "texts": 27,
+  "min_text": 6.56,
+  "chips": 6,
+  "min_chip": 5.94,
+  "fails": 0,
+  "worst_text": [
+   "6.56 \"Same recipient. Same GBP amount. Amount \"",
+   "6.56 \"GBP 1,000.00\"",
+   "6.56 \"USD per GBP\""
+  ],
+  "worst_chip": [
+   "5.94 \"Locked\"",
+   "6.56 \"Test money\"",
+   "7.23 \"REFUSED\""
+  ],
+  "failing": []
+ },
+ {
+  "screen": "phone-record",
+  "theme": "dark",
+  "texts": 48,
+  "min_text": 6.56,
+  "chips": 2,
+  "min_chip": 6.56,
+  "fails": 0,
+  "worst_text": [
+   "6.56 \"Globex Ltd. · Invoice INV-2040\"",
+   "7.13 \"Approved terms match. The payout failed \"",
+   "7.13 \"Detail\""
+  ],
+  "worst_chip": [
+   "6.56 \"Test money\"",
+   "10.02 \"WORLD: FAKE\""
+  ],
+  "failing": []
+ },
+ {
+  "screen": "phone-verify",
+  "theme": "dark",
+  "texts": 20,
+  "min_text": 6.56,
+  "chips": 2,
+  "min_chip": 6.56,
+  "fails": 0,
+  "worst_text": [
+   "6.56 \"Not sure yet: did not happen for this re\"",
+   "6.56 \"Found by request ID\"",
+   "7.13 \"A response that never arrived is looked \""
+  ],
+  "worst_chip": [
+   "6.56 \"Test money\"",
+   "10.02 \"WORLD: FAKE\""
+  ],
+  "failing": []
+ },
+ {
+  "screen": "19-desktop-calls-log",
+  "theme": "dark",
+  "texts": 37,
+  "min_text": 6.56,
+  "chips": 2,
+  "min_chip": 6.56,
+  "fails": 0,
+  "worst_text": [
+   "6.56 \"Not sure yet: did not happen for this re\"",
+   "6.56 \"Found by request ID\"",
+   "6.56 \"Each use is logged in this run. These co\""
+  ],
+  "worst_chip": [
+   "6.56 \"Test money\"",
+   "10.02 \"WORLD: FAKE\""
+  ],
+  "failing": []
+ }
+]

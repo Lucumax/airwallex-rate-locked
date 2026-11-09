@@ -1,0 +1,83 @@
+Headless browser walkthrough, local fake world (no keys, no network). Run 2026-11-09 at commit 509639a (source code; only docs changed after it).
+Command: PYTHONPATH=src node scripts/qa_walkthrough.mjs --out <empty folder>
+
+PASS  console shows no error banner after load
+PASS  guide line is filled in  Guide: Step 1 of 5, Invoices in. INV-3307 (Initech Pte. Ltd.) needs a person's r
+PASS  one world chip, a Test money tag, the reader chip here, the run id in the footer
+PASS  plan waits for the review (Lower and Deposit disabled)
+PASS  invoice that needs review is listed first, with its reason and the quoted source line
+PASS  invoices screen fits above the fold  991 of 1080px
+      shot 01-invoices-review-needed.png
+      shot 02-review-form-filled.png
+PASS  review resolved: HUMAN line shown, row READY, plan v1 built
+      shot 03-review-resolved.png
+PASS  plan v1 is FUND / CONVERT / DEFER
+PASS  plan decisions sit above their inputs, which are collapsed in Details
+PASS  plan shows the recommendation, the balances, the rate line and one primary action
+PASS  plan screen fits above the fold  1002 of 1080px
+      shot 04-plan-v1.png
+PASS  plan v2: Initech escalates, Acme not recomputed
+      shot 05-plan-v2-confidence-lowered.png
+PASS  plan v3: deposit turns the escalation into a conversion
+      shot 06-plan-v3-deposit-simulated.png
+PASS  approval request shows quote id, rate, you pay, valid to, digest
+      shot 07-approval-locked-quote.png
+PASS  approver page is live and shows the 8-character digest prefix
+PASS  approver phone 390x844: amounts, locked rate, countdown, fee, beneficiary, Approve and Decline are visible without scrolling  {"bottom":796,"h":844,"labels":true}
+PASS  approver main card has no digest typing; the digest is behind Full terms
+      shot 08-approver-phone-live.png
+      shot 09-approver-phone-expired.png
+PASS  approver page shows the expired state with an empty ring
+      shot 10-approver-phone-refused.png
+PASS  stale approval: calm alert 'No conversion or payout was sent to Airwallex (0 execution API calls)', counter 0, timeline from real events
+PASS  stale refused screen fits above the fold  872 of 1080px
+      shot 11-stale-refused.png
+PASS  new quote shows old and new rate and the computed cost difference
+PASS  stale new-quote screen fits above the fold  844 of 1080px
+      shot 12-stale-new-quote-cost-difference.png
+      shot 13-approver-phone-new-terms.png
+      shot 14-approver-phone-approved.png
+PASS  record: every term matches, N of N checks passed, PASS banner bound to the verify result
+PASS  record: provider statuses are reported verbatim in the Details
+PASS  record screen fits above the fold  1058 of 1080px
+      shot 15-record-approved-vs-executed.png
+      shot 16-lookup-not-sure-yet.png
+PASS  lookup by request ID, payout create calls stay at 1, never resent
+      shot 17-lookup-found.png
+PASS  verify: unchanged copy passes
+PASS  verify: edited copy fails and names a row  FAIL RECORD_DIGEST does not match the content: the record was edited after export PAYOUT_A
+      shot 18-verify-pass-then-fail.png
+PASS  validity select on a CONVERT card offers MIN_1, MIN_15, HR_1
+PASS  fee row shows the payout fee and method
+PASS  MIN_15 quote: valid about 15 minutes and the approval window follows it (over 10 minutes)  quote left 899s, approval left 889s
+      shot 20-approval-15-minute-validity.png
+PASS  record shows PAID for Globex with the re-check button
+PASS  re-check keeps a PAID transfer PAID
+PASS  late failure after PAID is shown as PAYOUT_FAILED, not retried, a person decides  Record and verify Approved terms match. The payout failed and has not been retried.Request O2 Globex
+PASS  failed payout has its own red notice apart from the matching terms
+      shot 21-record-late-failure-after-paid.png
+PASS  phone width 390: no horizontal page overflow on #invoices
+      shot phone-invoices.png
+PASS  phone width 390: no horizontal page overflow on #plan
+      shot phone-plan.png
+PASS  phone width 390: no horizontal page overflow on #approval
+      shot phone-approval.png
+PASS  phone width 390: no horizontal page overflow on #stale
+      shot phone-stale.png
+PASS  phone width 390: no horizontal page overflow on #record
+      shot phone-record.png
+PASS  phone width 390: no horizontal page overflow on #verify
+      shot phone-verify.png
+PASS  desktop 1920: no horizontal page overflow on #invoices
+PASS  desktop 1920: no horizontal page overflow on #plan
+PASS  desktop 1920: no horizontal page overflow on #approval
+PASS  desktop 1920: no horizontal page overflow on #stale
+PASS  desktop 1920: no horizontal page overflow on #record
+PASS  desktop 1920: no horizontal page overflow on #verify
+      shot 19-desktop-calls-log.png
+PASS  no page errors on console
+PASS  no page errors on approver
+PASS  no page errors on approver-2
+PASS  no page errors on approver-3
+
+51/51 checks passed

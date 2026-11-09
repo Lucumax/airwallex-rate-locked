@@ -1,0 +1,151 @@
+{
+ "version": "sandbox v2",
+ "voice": "Kokoro af_heart",
+ "note": "Third person. 'tts' is what the voice reads; 'cap' is the burned-in caption ('|' = chunk break). Scenes c0 and u1..u5 are the real console against the Airwallex sandbox (test money); d1 and d3 are labelled diagram cards. 'over' is an optional on-screen lower-third shown with the line.",
+ "scenes": [
+  {
+   "id": "c0",
+   "name": "Cold open: the refused screen",
+   "lines": [
+    {
+     "tts": "This approval came 4 seconds late. So nothing was sent.",
+     "cap": "This approval came 4 seconds late. |So nothing was sent.",
+     "over": "Sandbox, test money"
+    }
+   ]
+  },
+  {
+   "id": "d1",
+   "name": "Rewind: the problem",
+   "lines": [
+    {
+     "tts": "Rewind. A small business holds dollars, and owes suppliers in euros and pounds.",
+     "cap": "Rewind. |A small business holds dollars, and owes suppliers in euros and pounds."
+    },
+    {
+     "tts": "Rates keep moving while an approval waits.",
+     "cap": "Rates keep moving while an approval waits."
+    }
+   ]
+  },
+  {
+   "id": "u1",
+   "name": "Invoices in: a model reads, code checks",
+   "lines": [
+    {
+     "tts": "This is Rate-Locked Approval, on Airwallex's sandbox, with test money. A Claude model reads three invoices.",
+     "cap": "This is Rate-Locked Approval, on Airwallex's sandbox, with test money. |A Claude model reads three invoices."
+    },
+    {
+     "tts": "Two come through clean. The third has a due time with no time zone, so the agent stops, and asks a person.",
+     "cap": "Two come through clean. The third has a due time with no time zone, |so the agent stops, and asks a person."
+    },
+    {
+     "tts": "Separately, five hostile invoices were thrown at it. Zero wrong values. All five were held.",
+     "cap": "Separately, five hostile invoices were thrown at it. |Zero wrong values. All five were held.",
+     "over": "Separate test, five invented hostile invoices: 0 read wrong, 5 held for a person"
+    }
+   ]
+  },
+  {
+   "id": "u2",
+   "name": "Plan: balances, live rate, fund / convert / defer",
+   "lines": [
+    {
+     "tts": "Next, the plan. Code does this part, not the model.",
+     "cap": "Next, the plan. |Code does this part, not the model."
+    },
+    {
+     "tts": "The plan funds Acme from euros. Globex needs pounds, so dollars get converted. Initech waits for money that's coming in.",
+     "cap": "The plan funds Acme from euros. |Globex needs pounds, so dollars get converted. |Initech waits for money that's coming in."
+    }
+   ]
+  },
+  {
+   "id": "u2b",
+   "name": "Recalculate only what changed",
+   "lines": [
+    {
+     "tts": "Now the money Initech is waiting for looks less certain. Only the decisions that depend on it are recomputed.",
+     "cap": "Now the money Initech is waiting for looks less certain. |Only the decisions that depend on it are recomputed."
+    },
+    {
+     "tts": "Acme is not touched. Globex is checked again, and stays the same. Initech now goes to a person.",
+     "cap": "Acme is not touched. |Globex is checked again, and stays the same. |Initech now goes to a person."
+    }
+   ]
+  },
+  {
+   "id": "u3",
+   "name": "Locked quote on the approver page",
+   "lines": [
+    {
+     "tts": "Here's the key idea. The agent may only spend at the rate a person approved.",
+     "cap": "Here's the key idea. |The agent may only spend at the rate a person approved."
+    },
+    {
+     "tts": "For Globex, it asks Airwallex for a quote: a rate with an end time. That opens a separate approver page, sized for a phone.",
+     "cap": "For Globex, it asks Airwallex for a quote: a rate with an end time. |That opens a separate approver page, sized for a phone."
+    },
+    {
+     "tts": "They see what they pay, what the supplier gets, the locked rate, and a countdown.",
+     "cap": "They see what they pay, what the supplier gets, the locked rate, and a countdown."
+    },
+    {
+     "tts": "Approve in time, and the agent may use exactly this quote. Nothing else.",
+     "cap": "Approve in time, and the agent may use exactly this quote. Nothing else."
+    }
+   ]
+  },
+  {
+   "id": "u4",
+   "name": "The twist: approval after expiry is refused",
+   "lines": [
+    {
+     "tts": "The approver gets pulled into a meeting, and the clock runs out.",
+     "cap": "The approver gets pulled into a meeting, and the clock runs out."
+    },
+    {
+     "tts": "The tap on Approve comes too late. The app refuses. Nothing was converted, nothing was paid. The log shows zero execution calls.",
+     "cap": "The tap on Approve comes too late. The app refuses. |Nothing was converted, nothing was paid. The log shows zero execution calls."
+    },
+    {
+     "tts": "So the agent asks for a fresh quote, and shows what changed. VARIANT_COST. Either way, it won't convert without a quote a person approved.",
+     "cap": "So the agent asks for a fresh quote, and shows what changed. |VARIANT_COST. |Either way, it won't convert without a quote a person approved."
+    },
+    {
+     "tts": "The approver says yes to the new quote, and it goes through.",
+     "cap": "The approver says yes to the new quote, and it goes through."
+    }
+   ]
+  },
+  {
+   "id": "u5",
+   "name": "Record: approved vs executed, then Verify",
+   "lines": [
+    {
+     "tts": "Now the record. Approved on the left, executed on the right, row by row. Twelve of twelve match.",
+     "cap": "Now the record. Approved on the left, executed on the right, row by row. |Twelve of twelve match."
+    },
+    {
+     "tts": "Those are real Airwallex sandbox IDs. The transfer went from scheduled to paid, using the sandbox simulator.",
+     "cap": "Those are real Airwallex sandbox IDs. |The transfer went from scheduled to paid, using the sandbox simulator."
+    },
+    {
+     "tts": "Anyone can verify an exported copy, offline. It passes. Edit one number in the copy, and it fails, and names the row.",
+     "cap": "Anyone can verify an exported copy, offline. It passes. |Edit one number in the copy, and it fails, and names the row."
+    }
+   ]
+  },
+  {
+   "id": "d3",
+   "name": "Close",
+   "lines": [
+    {
+     "tts": "Built on Airwallex's sandbox APIs: balances, rates, quotes, conversions, beneficiaries, transfers. The code is MIT licensed, and the repository is linked with this entry.",
+     "cap": "Built on Airwallex's sandbox APIs: |balances, rates, quotes, conversions, beneficiaries, transfers. |The code is MIT licensed, |and the repository is linked with this entry."
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,4 @@
+{"id": "8365ea88-2946-4877-abe1-e02a1015288d", "nickname": "Acme Co. (sandbox)", "payer_entity_type": "COMPANY",
+ "transfer_methods": ["LOCAL"],
+ "beneficiary": {"type": "BANK_ACCOUNT", "entity_type": "COMPANY", "company_name": "Acme Co.",
+   "bank_details": {"account_currency": "EUR", "account_name": "Acme Co.", "bank_country_code": "DE"}}}

@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="csrf-token" content="__CSRF__">
+<title>Rate-Locked Console</title>
+<meta name="description" content="Plan supplier payments in several currencies, convert only at a quote a person approved, and check the record.">
+<link rel="stylesheet" href="/static/app.css">
+<script src="/static/theme.js"></script>
+<script src="/static/console.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to the console</a>
+<header class="topbar">
+  <h1 class="brand"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="5" y="10" width="14" height="10" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg>Rate-Locked Approval</h1>
+  <span class="chip world" id="chip-world" data-provenance="fake">WORLD: FAKE</span>
+  <span class="tag" id="chip-money">Test money</span>
+  <span class="chip" id="chip-reader" data-provenance="test-double" hidden>READER: loading</span>
+  <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="false"><span class="swatch" aria-hidden="true"></span>Dark mode</button>
+</header>
+<nav class="steps" aria-label="Steps">
+  <ol>
+    <li data-screens="invoices"><a href="#invoices"><span class="n">1</span><span class="t">Invoices in</span></a></li>
+    <li data-screens="plan"><a href="#plan"><span class="n">2</span><span class="t">Plan</span></a></li>
+    <li data-screens="approval"><a href="#approval"><span class="n">3</span><span class="t">Locked quote</span></a></li>
+    <li data-screens="stale"><a href="#stale"><span class="n">4</span><span class="t">Approval</span></a></li>
+    <li data-screens="record verify"><a href="#record"><span class="n">5</span><span class="t">Record</span></a></li>
+  </ol>
+</nav>
+<main id="main">
+  <p id="status" class="sr-only" role="status" aria-live="polite"></p>
+  <p id="error" class="notice bad" role="alert" hidden></p>
+
+  <section id="invoices" aria-labelledby="h-invoices">
+    <div class="screen-head">
+      <div>
+        <h2 id="h-invoices" tabindex="-1">Invoices in</h2>
+        <p class="sub" id="invoices-sub"></p>
+      </div>
+    </div>
+    <div id="invoices-body"></div>
+    <details class="details" id="inv-details">
+      <summary>Details: invoice text, every field with its source words, review log</summary>
+      <p class="source" data-provenance="fixture">Source: <b>FIXTURE</b> invoices (fictional), fields extracted by the <b id="src-reader">TEST DOUBLE</b> reader, every quote and value checked by <b>CODE</b>. <span id="reader-note">The reader proposes; code decides.</span></p>
+      <p class="muted">The reader extracts each field with the exact words it came from. Code finds those words in the invoice, computes the offsets, and checks that the value is in them. A missing, conflicting or unsupported field goes to review and never reaches the planner.</p>
+      <div id="invoices-detail-body"></div>
+    </details>
+  </section>
+
+  <section id="plan" aria-labelledby="h-plan">
+    <div class="screen-head">
+      <div>
+        <p class="eyebrow">Step 2 of 5</p>
+        <h2 id="h-plan" tabindex="-1">Payment plan</h2>
+        <p class="sub">Fund what the balances cover, convert only at an approved quote, defer the rest. Every decision is reviewable.</p>
+      </div>
+    </div>
+    <div id="plan-body"></div>
+    <details class="details" id="plan-demo">
+      <summary>Demo controls</summary>
+      <p class="muted">Change one input and watch only the decisions that depend on it recompute. Each use is a new plan version.</p>
+      <div class="row-actions" role="group" aria-label="Demo controls">
+        <button type="button" id="btn-lower">Receipt R1 less certain</button>
+        <button type="button" id="btn-deposit">Simulate deposit USD 1,000</button>
+      </div>
+    </details>
+    <details class="details" id="plan-details">
+      <summary>Details: why, inputs, reserve, execution limit, plan history</summary>
+      <p class="source">Source: balances and indicative rates from the <b class="src-world">FAKE</b> world; receipts are a <b>FIXTURE</b>; decisions computed by <b>CODE</b> (no model input).</p>
+      <div id="plan-details-body"></div>
+      <h3 class="inputs-head">Inputs behind these decisions</h3>
+      <div id="plan-inputs"></div>
+    </details>
+  </section>
+
+  <section id="approval" aria-labelledby="h-approval">
+    <div class="screen-head">
+      <div>
+        <p class="eyebrow">Step 3 of 5</p>
+        <h2 id="h-approval" tabindex="-1">Locked quote</h2>
+        <p class="sub">One exact set of terms goes to a separate approver page. That page can approve or deny, nothing else.</p>
+      </div>
+    </div>
+    <div id="approval-body"></div>
+    <details class="details">
+      <summary>Details</summary>
+      <p class="source">Source: quotes from the <b class="src-world">FAKE</b> world; approval state from the <b>CODE</b> gate.</p>
+    </details>
+  </section>
+
+  <section id="stale" aria-labelledby="h-stale">
+    <div id="stale-body"></div>
+    <details class="details">
+      <summary>Details</summary>
+      <p class="source">Source: call counts from the <b>CODE</b> transport log of calls sent to the <b class="src-world">FAKE</b> world; event times from the run's event log.</p>
+    </details>
+  </section>
+
+  <section id="record" aria-labelledby="h-record">
+    <div id="record-body"></div>
+    <details class="details">
+      <summary>Details</summary>
+      <p class="source">Source: approved terms from the bound envelope (<b>CODE</b>); executed terms and statuses as reported by the <b class="src-world">FAKE</b> world, shown verbatim. If a reply names no beneficiary, the beneficiary row shows the id this app's own request named, and says so.</p>
+      <div id="record-detail-body"></div>
+    </details>
+  </section>
+
+  <section id="verify" aria-labelledby="h-verify">
+    <div class="screen-head">
+      <div>
+        <p class="eyebrow">Step 5 of 5</p>
+        <h2 id="h-verify" tabindex="-1">Not sure yet, look up, then Verify</h2>
+        <p class="sub">A response that never arrived is looked up by its request ID and never resent. Any exported copy can be checked offline.</p>
+      </div>
+      <a class="button" href="#record">Back to the record</a>
+    </div>
+    <div id="lookup-body"></div>
+    <div class="panel">
+      <h3>Verify an exported copy</h3>
+      <p class="muted">Export the record, edit anything you like, then Verify. The same check runs offline: <span class="mono">python -m rate_locked verify bundle.json</span></p>
+      <div class="row-actions">
+        <button type="button" id="btn-export">Export bundle</button>
+        <button type="button" id="btn-load">Load record into the box</button>
+        <button type="button" id="btn-tamper">Edit a copy: change an executed value</button>
+        <button type="button" class="primary" id="btn-verify">Verify this copy</button>
+      </div>
+      <div id="verify-result" aria-live="polite"></div>
+      <label for="bundle" class="muted">Record copy (JSON)</label>
+      <textarea id="bundle" spellcheck="false"></textarea>
+    </div>
+    <details class="details">
+      <summary>Details</summary>
+      <p class="source">Source: lookups by request ID against the <b class="src-world">FAKE</b> world; Verify is offline <b>CODE</b> over the exported copy.</p>
+    </details>
+  </section>
+
+  <details class="details about" id="about">
+    <summary>Details: what this is, where you are (guide), this run</summary>
+    <p class="lede" id="world-line">Every number on these screens comes from this run. The world is the local FAKE of the Airwallex endpoints: nothing here calls Airwallex or any model.</p>
+    <p class="guide" id="guide" role="status" data-provenance="code"></p>
+    <ol>
+      <li>Three fictional supplier invoices arrive in three currencies. Code reads each field from its exact source words and sends anything doubtful to a person.</li>
+      <li>Code, not a model, plans each payment: fund it from a balance, convert, defer, or escalate. A change in inputs recomputes only what it touches.</li>
+      <li>Before any money moves, a person approves one exact set of terms (supplier, amounts, locked FX quote) on a separate approver page with the quote's clock.</li>
+      <li>If the quote has expired, approving does nothing: zero conversion and zero payout calls. The agent asks for a new quote and shows what the new terms cost.</li>
+      <li>After execution the record puts approved and executed terms side by side, and any exported copy can be checked offline.</li>
+    </ol>
+    <p class="muted" id="about-world">This run is the local FAKE of the Airwallex endpoints. Nothing here calls Airwallex or any model.</p>
+  </details>
+
+  <details class="calls details">
+    <summary>Calls made in this run (transport log)</summary>
+    <p class="source">Source: <b>CODE</b> transport log; every call to the <b class="src-world">FAKE</b> world is counted before it is sent.</p>
+    <div id="calls-body"></div>
+  </details>
+</main>
+<footer>
+  <p class="honesty">Execution limits, the planning window and the reserve line are demo policy, not an Airwallex setting. Suppliers, invoices, receipts and amounts are fictional test fixtures. Built for the sandbox APIs: Balances, FX Rates, FX Quotes, Conversions, Beneficiaries, Transfers and the sandbox simulations. Independent sandbox project. Not affiliated with or endorsed by Airwallex.</p>
+  <p class="runline"><span class="chip" id="chip-run" data-provenance="code">RUN: loading</span></p>
+</footer>
+</body>
+</html>

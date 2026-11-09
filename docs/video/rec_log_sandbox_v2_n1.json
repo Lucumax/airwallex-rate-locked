@@ -1,0 +1,61 @@
+{
+ "what": "Take N1, plan only plus one quote request that is never approved, Airwallex sandbox world (test money), 2026-11-06. Seconds from the start of the console clip.",
+ "world_chip": "WORLD: AIRWALLEX SANDBOX",
+ "reader_chip": "READER: MODEL claude-opus-5-5 (reads; code decides)",
+ "plan_v1_text": "\u2726 | Agent recommendation | Pay Acme Co. from the EUR balance, convert to GBP and pay Globex Ltd. and defer Initech Pte. Ltd. | EUR | 1,500.00 | Available | GBP | 0.00 | Available | USD | 3,000.00 | Available |  | Demo allocation: the sandbox wallet holds more test money than the story needs, so the agent works from an allocation of USD 3,000, EUR 1,500 and GBP 0 plus what the wallet has moved since this console started, never more than the wallet holds. A restart starts a fresh allocation. |  | Live Airwallex rate | 1 EUR costs USD 1.1204 | 1 GBP costs USD 1.34378 | Balances read at 13:47:21 UTC | Approvals bind to a locked quote, never to this rate | Proposed actions (Plan v1: baseline) | 3 obligations | SUPPLIER / INVOICE\tDUE\tAMOUNT\tDECISION\tNEXT |  | O1 Acme Co. | INV-1001 | \tNov 3, 05:00 UTC\tEUR 1,200.00\t\u2713 FUND | The EUR balance covers EUR 1,200.00. | A person approves the payment | \t | Request approval |  |  | O2 Globex Ltd. | INV-2040 | \tNov 3, 15:00 UTC\tGBP 1,000.00\t\u21c4 CONVERT | GBP 1,000.00 short. Buy GBP at a locked quote, estimated USD 1,350.50 including a 0.5% buffer. | A person approves the exact quote \u00b7 limit USD 5,000.00 | \t | Quote valid for  | 1 minute (default) | 15 minutes | 1 hour | Get a locked quote and request approval |  |  | O3 Initech Pte. Ltd. | INV-3307 | \tNov 4, 21:00 UTC\tEUR 2,000.00\t\u25f7 DEFER | EUR 1,700.00 short. Vandelay Industries is expected to pay EUR 1,800.00 on 2026-11-04 01:00 UTC (high confidence), before the due date. | Nothing to approve ",
+ "run_chip": "RUN: LIVE r-7fb16284 aec8041",
+ "plan_v2_text": "\u2726 | Agent recommendation | Pay Acme Co. from the EUR balance, convert to GBP and pay Globex Ltd. and send Initech Pte. Ltd. to a person. | EUR | 1,500.00 | Available | GBP | 0.00 | Available | USD | 3,000.00 | Available |  | Demo allocation: the sandbox wallet holds more test money than the story needs, so the agent works from an allocation of USD 3,000, EUR 1,500 and GBP 0 plus what the wallet has moved since this console started, never more than the wallet holds. A restart starts a fresh allocation. |  | Live Airwallex rate | 1 EUR costs USD 1.1204 | 1 GBP costs USD 1.34378 | Balances read at 13:47:21 UTC | Approvals bind to a locked quote, never to this rate | Proposed actions (Plan v2: receipt confidence lowered) | 3 obligations | SUPPLIER / INVOICE\tDUE\tAMOUNT\tDECISION\tNEXT |  | O1 Acme Co. | INV-1001 | \tNov 3, 05:00 UTC\tEUR 1,200.00\t\u2713 FUND Not recomputed (its inputs did not change) | The EUR balance covers EUR 1,200.00. | A person approves the payment | \t | Request approval |  |  | O2 Globex Ltd. | INV-2040 | \tNov 3, 15:00 UTC\tGBP 1,000.00\t\u21c4 CONVERT Recomputed, same result | GBP 1,000.00 short. Buy GBP at a locked quote, estimated USD 1,350.50 including a 0.5% buffer. | A person approves the exact quote \u00b7 limit USD 2,000.00 | \t | Quote valid for  | 1 minute (default) | 15 minutes | 1 hour | Get a locked quote and request approval |  |  | O3 Initech Pte. Ltd. | INV-3307 | \tNov 4, 21:00 UTC\tEUR 2,000.00\t\u25b2 ESCALATE Recomputed | EUR 1,700.00 short and no confident funding source. Only a low-confidence receipt is expected. A person decides. | Changed from DEFER to ESCALATE. | A person decides first | \t | Remaining reserve | EUR 300.00 | GBP 0.00 | USD 1,649.50 | 1 conversion needs approval |  | \u25c8 | Approval is tied to a locked FX quote. | If the quote has expired, nothing is sent (zero execution API calls) and the agent asks again with the cost difference.",
+ "deposit_made_plan_v3": false,
+ "after_deposit_text": "\u2726 | Agent recommendation | Pay Acme Co. from the EUR balance, convert to GBP and pay Globex Ltd. and send Initech Pte. Ltd. to a person. | EUR | 1,500.00 | Available | GBP | 0.00 | Available | USD | 3,000.00 | Available |  | Demo allocation: the sandbox wallet holds more test money than the story needs, so the agent works from an allocation of USD 3,000, EUR 1,500 and GBP 0 plus what the wallet has moved since this console started, never more than the wallet holds. A restart starts a fresh allocation. |  | Live Airwallex rate | 1 EUR costs USD 1.1204 | 1 GBP costs USD 1.34378 | Balances read at 13:47:21 UTC | Approvals bind to a locked quote, never to this rate | Proposed actions (Plan v2: receipt confidence lowered) | 3 obligations | SUPPLIER / INVOICE\tDUE\tAMOUNT\tDECISION\tNEXT |  | O1 Acme Co. | INV-1001 | \tNov 3, 05:00 UTC\tEUR 1,200.00\t\u2713 FUND Not recomputed (its inputs did not change) | The EUR balance covers EUR 1,200.00. | A person approves the payment | \t | Request approval |  |  | O2 Globex Ltd. | INV-2040 | \tNov 3, 15:00 UTC\tGBP 1,000.00\t\u21c4 CONVERT Recomputed, same result | GBP 1,000.00 short. Buy GBP at a locked quote, estimated USD 1,350.50 including a 0.5% buffer. | A person approves the exact quote \u00b7 limit USD 2,000.00 | \tRequest open: Waiting for a person to approve the exact terms. See approval |  | O3 Initech Pte. Ltd. | INV-3307 | \tNov 4, 21:00 UTC\tEUR 2,000.00\t\u25b2 ESCALATE Recomputed | EUR 1,700.00 short and no confident funding source. Only a low-confidence receipt is expected. A person decides. | Changed from DEFER to ESCALATE. | A person decides first | \t | Remaining reserve | EUR 300.00 | GBP 0.00 | USD 1,649.50 | 1 conversion needs approval |  | \u25c8 | Approval is tied to a locked FX quote. | If the quote has expired, nothing is sent (zero execution API calls) and the agent asks again with the cost difference.",
+ "balances_after_deposit": "EUR\n1,500.00\nAvailable",
+ "error_banner_after_deposit": "",
+ "posts": [
+  [
+   "POST",
+   "/api/review/resolve",
+   200
+  ],
+  [
+   "POST",
+   "/api/lower-confidence",
+   200
+  ],
+  [
+   "POST",
+   "/api/prepare",
+   200
+  ]
+ ],
+ "errors": [],
+ "marks": {
+  "start": 0.35,
+  "confirm_click": 7.311,
+  "confirmed": 28.216,
+  "plan_click": 30.135,
+  "plan_v1_ready": 30.684,
+  "u2_0": 30.827,
+  "u2_1": 34.188,
+  "run_chip_shown": 42.983,
+  "u2b_0": 44.493,
+  "demo_open_click": 44.493,
+  "lower_click": 47.745,
+  "plan_v2_shown": 55.548,
+  "u2b_1": 56.975,
+  "tag_acme": 56.975,
+  "tag_globex": 58.41,
+  "tag_initech": 60.937,
+  "tags_done": 63.444,
+  "details_shown": 65.48,
+  "dark_on": 67.987,
+  "dark_hold_end": 70.706,
+  "dark_off": 71.565,
+  "lock_click": 73.878,
+  "approval_shown": 109.007,
+  "deposit_click": 112.361,
+  "deposit_done": 140.388,
+  "end": 141.838,
+  "total": 141.838
+ },
+ "note_deposit": "The last step of this take (the deposit press after the quote request) did not register: the POST list has no /api/deposit, so deposit_made_plan_v3 false and after_deposit_text say nothing about a deposit. The deposit result is in evidence/deposit_dryrun_20261106.json (a separate dry run).",
+ "note_quote": "The locked quote requested near the end of this take (POST /api/prepare) was never approved, so no conversion or payout was created."
+}
